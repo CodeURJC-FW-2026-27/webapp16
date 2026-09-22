@@ -39,9 +39,7 @@
     * `Puntuación` (Número del 1 al 5)
     * `Comentario` (Texto)
     * `Fecha` (Fecha)
-  * **Atributos (Material de costura):**
-    * `Tipo de tela / Composición` (Texto)
-    * `Cuidados / Lavado` (Texto)
+ 
    
       
       ### Imágenes
