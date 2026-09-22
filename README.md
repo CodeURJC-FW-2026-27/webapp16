@@ -32,7 +32,7 @@
     * `Color` (Texto / Selección)
     * `Talla` (Selección: XS, S, M, L, XL)
     * 
-* **Entidad Secundaria:** `Reseña` / `Material de costura`
+* **Entidad Secundaria:** `Reseña`
   * Relacionada con cada producto para complementar la información del artículo.
   * **Atributos (Reseñas):**
     * `Autor` (Texto)
