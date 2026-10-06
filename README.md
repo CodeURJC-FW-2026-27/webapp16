@@ -53,6 +53,7 @@
   * Tipo de producto
   * Color
   * Rango de precio
+  
 
 
 
