@@ -8097,7 +8097,7 @@ textarea.form-control-lg {
   --bs-text-opacity: 1;
   color: rgba(0, 0, 0, 0.5) !important;
 }
-
+dark
 .text-white-50 {
   --bs-text-opacity: 1;
   color: rgba(255, 255, 255, 0.5) !important;
@@ -8160,6 +8160,11 @@ textarea.form-control-lg {
 }
 
 .bg-dark {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-brown {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
 }
