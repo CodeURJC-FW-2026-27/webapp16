@@ -1,0 +1,23 @@
+
+.product-categories > summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.product-categories > summary::-webkit-details-marker {
+    display: none;
+}
+
+.product-categories[open] > .dropdown-menu {
+    display: block;
+}
+
+@media (max-width: 991.98px) {
+    .product-navigation {
+        padding-top: 0.75rem;
+    }
+
+    .product-categories > .dropdown-menu {
+        position: static;
+    }
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Detalles y reseñas de los pantalones vaqueros unisex de Bull and Pear." />
+    <title>Pantalones vaqueros unisex - Bull and Pear</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/product-detail.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">B&P</a>
+                <div class="navbar-collapse product-navigation">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Menu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Información</a></li>
+                        <li class="nav-item dropdown">
+                            <details class="product-categories">
+                            <summary class="nav-link dropdown-toggle">Categorías</summary>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#!">Unisex</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#!">Hombre</a></li>
+                                <li><a class="dropdown-item" href="#!">Mujer</a></li>
+                            </ul>
+                            </details>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            Carrito
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    <header class="bg-brown py-5"><!--CAMBIO DE COLOR DE FONDO-->
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Bull and pear</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Compra los productos a buen precio</p>
+                </div>
+            </div>
+        </header>
+    <main class="container px-4 px-lg-5 py-5">
+        <!-- Main entity: product -->
+        <section aria-labelledby="product-title">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img class="img-fluid rounded" src="Imagenes/pantalonvqr.jpg" alt="Pantalones vaqueros unisex" />
+                </div>
+                <div class="col-md-6">
+                    <h2 class="h1 fw-bolder" id="product-title">Pantalones vaqueros unisex</h2>
+                    <p class="fs-3">Precio: $30.00</p>
+                    <p class="lead">Pantalones vaqueros de corte recto, cómodos y versátiles para el día a día. Combínalos con una camiseta básica o una sudadera para completar tu conjunto.</p>
+                    <dl class="row">
+                        <dt class="col-sm-5">Género</dt><dd class="col-sm-7">Unisex</dd>
+                        <dt class="col-sm-5">Tipo de producto</dt><dd class="col-sm-7">Pantalón</dd>
+                        <dt class="col-sm-5">Color</dt><dd class="col-sm-7">Azul vaquero</dd>
+                        <dt class="col-sm-5">Materiales</dt><dd class="col-sm-7">Tejido denim de algodón, resistente y cómodo para el uso diario. Costuras reforzadas, cierre de cremallera y botón metálico.</dd>
+                        <dt class="col-sm-5">Tallas disponibles</dt><dd class="col-sm-7">XS, S, M, L y XL</dd>
+                    </dl>
+                    <!-- These actions are intentionally inactive in Practice 1. -->
+                    <div class="d-flex flex-wrap gap-2">
+                        <button class="btn btn-outline-danger" type="button">Borrar</button>
+                        <button class="btn btn-outline-dark" type="button">Editar</button>
+                        <a class="btn btn-dark" href="index.html">Volver a la página principal</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Secondary entity: sample product reviews -->
+        <section class="mt-5" aria-labelledby="reviews-title">
+            <h2 class="fw-bolder mb-3" id="reviews-title">Reseñas del producto</h2>
+            <p class="text-muted">Reseñas de ejemplo para la maqueta.</p>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <article class="card h-100">
+                        <div class="card-body p-4">
+                            <h3 class="h5 fw-bolder">Laura García</h3>
+                            <p class="mb-2">Fecha: <time datetime="2026-10-01">1 de octubre de 2026</time></p>
+                            <p class="mb-2">Puntuación: <strong>5 de 5</strong></p>
+                            <p class="mb-0">Son cómodos y combinan muy bien con una camiseta básica. La talla me queda como esperaba.</p>
+                        </div>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex gap-2">
+                            <button class="btn btn-outline-danger" type="button" aria-label="Borrar reseña de Laura García">Borrar</button>
+                            <button class="btn btn-outline-dark" type="button" aria-label="Editar reseña de Laura García">Editar</button>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6">
+                    <article class="card h-100">
+                        <div class="card-body p-4">
+                            <h3 class="h5 fw-bolder">Pablo Martín</h3>
+                            <p class="mb-2">Fecha: <time datetime="2026-10-05">5 de octubre de 2026</time></p>
+                            <p class="mb-2">Puntuación: <strong>4 de 5</strong></p>
+                            <p class="mb-0">Buen corte y buen precio. El color es fácil de combinar y el tejido resulta cómodo.</p>
+                        </div>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex gap-2">
+                            <button class="btn btn-outline-danger" type="button" aria-label="Borrar reseña de Pablo Martín">Borrar</button>
+                            <button class="btn btn-outline-dark" type="button" aria-label="Editar reseña de Pablo Martín">Editar</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- Review creation layout for Practice 1. -->
+        <section class="mt-5" aria-labelledby="new-review-title">
+            <h2 class="fw-bolder mb-4" id="new-review-title">Crear una reseña</h2>
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label" for="review-author">Autor</label>
+                        <input class="form-control" id="review-author" name="author" type="text" maxlength="80" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="review-date">Fecha</label>
+                        <input class="form-control" id="review-date" name="date" type="date" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="review-rating">Puntuación</label>
+                        <input class="form-control" id="review-rating" name="rating" type="number" min="1" max="5" step="1" aria-describedby="rating-help" required />
+                        <div class="form-text" id="rating-help">Introduce una puntuación del 1 al 5.</div>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label" for="review-comment">Comentario</label>
+                        <textarea class="form-control" id="review-comment" name="comment" rows="4" maxlength="1000" required></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-dark" type="button">Crear</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">&copy; 2026 Bull&Pear</p></div>
+        </footer>
+</body>
+</html>
