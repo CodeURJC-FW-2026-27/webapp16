@@ -122,8 +122,11 @@
             <form>
                 <div class="row g-3">
                     <div class="col-md-6">
-                        <label class="form-label" for="review-author">Autor</label>
-                        <input class="form-control" id="review-author" name="author" type="text" maxlength="80" required />
+                        <label class="form-label" for="review-author">Usuario</label>
+                        <div class="input-group">
+                            <span class="input-group-text">@</span>
+                            <input class="form-control" id="review-author" name="author" type="text" placeholder="usuario" maxlength="80" required />
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label" for="review-date">Fecha</label>
