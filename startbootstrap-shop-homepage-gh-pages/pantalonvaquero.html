@@ -83,7 +83,10 @@
                 <div class="col-md-6">
                     <article class="card h-100">
                         <div class="card-body p-4">
-                            <h3 class="h5 fw-bolder">Laura García</h3>
+                            <div class="review-header">
+                                <img class="review-avatar" src="https://ui-avatars.com/api/?name=Laura+Garcia&background=E6E1D8&color=2C2C2C&size=200" alt="Avatar genérico de Laura García" />
+                                <h3 class="h5 fw-bolder review-user">Laura García</h3>
+                            </div>
                             <p class="mb-2">Fecha: <time datetime="2026-10-01">1 de octubre de 2026</time></p>
                             <p class="mb-2">Puntuación: <strong>5 de 5</strong></p>
                             <p class="mb-0">Son cómodos y combinan muy bien con una camiseta básica. La talla me queda como esperaba.</p>
@@ -97,7 +100,10 @@
                 <div class="col-md-6">
                     <article class="card h-100">
                         <div class="card-body p-4">
-                            <h3 class="h5 fw-bolder">Pablo Martín</h3>
+                            <div class="review-header">
+                                <img class="review-avatar" src="https://ui-avatars.com/api/?name=Pablo+Martin&background=E6E1D8&color=2C2C2C&size=200" alt="Avatar genérico de Pablo Martín" />
+                                <h3 class="h5 fw-bolder review-user">Pablo Martín</h3>
+                            </div>
                             <p class="mb-2">Fecha: <time datetime="2026-10-05">5 de octubre de 2026</time></p>
                             <p class="mb-2">Puntuación: <strong>4 de 5</strong></p>
                             <p class="mb-0">Buen corte y buen precio. El color es fácil de combinar y el tejido resulta cómodo.</p>
@@ -116,21 +122,37 @@
             <form>
                 <div class="row g-3">
                     <div class="col-md-6">
-                        <label class="form-label" for="review-author">Autor</label>
-                        <input class="form-control" id="review-author" name="author" type="text" maxlength="80" required />
+                        <label class="form-label" for="review-author">Usuario</label>
+                        <div class="input-group">
+                            <span class="input-group-text">@</span>
+                            <input class="form-control" id="review-author" name="author" type="text" placeholder="usuario" maxlength="80" required />
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label" for="review-date">Fecha</label>
-                        <input class="form-control" id="review-date" name="date" type="date" required />
+                        <input class="form-control" id="review-date" name="date" type="date" min="2018-01-01" max="2030-12-31" required />
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label" for="review-rating">Puntuación</label>
-                        <input class="form-control" id="review-rating" name="rating" type="number" min="1" max="5" step="1" aria-describedby="rating-help" required />
-                        <div class="form-text" id="rating-help">Introduce una puntuación del 1 al 5.</div>
+                        <label class="form-label">Puntuación</label>
+                        <div class="rating-selector" role="radiogroup" aria-label="Puntuación del producto">
+                            <input type="radio" id="rating-1" name="rating" value="1" required />
+                            <label for="rating-1">1</label>
+                            <input type="radio" id="rating-2" name="rating" value="2" />
+                            <label for="rating-2">2</label>
+                            <input type="radio" id="rating-3" name="rating" value="3" />
+                            <label for="rating-3">3</label>
+                            <input type="radio" id="rating-4" name="rating" value="4" />
+                            <label for="rating-4">4</label>
+                            <input type="radio" id="rating-5" name="rating" value="5" />
+                            <label for="rating-5">5</label>
+                        </div>
                     </div>
                     <div class="col-12">
-                        <label class="form-label" for="review-comment">Comentario</label>
-                        <textarea class="form-control" id="review-comment" name="comment" rows="4" maxlength="1000" required></textarea>
+                        <label class="form-label" for="review-comment">Escriba su reseña</label>
+                        <textarea class="form-control" id="review-comment" name="comment" rows="4" maxlength="200" required></textarea>
+                        <div class="d-flex justify-content-end mt-2">
+                            <small class="text-muted" id="char-counter">0/200</small>
+                        </div>
                     </div>
                     <div class="col-12">
                         <button class="btn btn-dark" type="button">Crear</button>
@@ -144,5 +166,15 @@
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
+        <script>
+            const reviewComment = document.getElementById('review-comment');
+            const charCounter = document.getElementById('char-counter');
+
+            reviewComment.addEventListener('input', function() {
+                const chars = this.value.length;
+                const maxChars = 200;
+                charCounter.textContent = chars + '/' + maxChars;
+            });
+        </script>
 </body>
 </html>
