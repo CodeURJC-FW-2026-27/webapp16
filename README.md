@@ -67,13 +67,29 @@
 
 ### Participaciones
 * **Ismael:**
+* He participado en la creación de la página principal y edición de la misma, modificando el grid dependiendo del tamaño de la pantalla. También he añadido la página de nuevo elemento em bruto para después corregir errores. Además de añadir la mayoria de imágenes
 
+* Cinco commits más importantes
+
+1. [Modificacion grid y cambios de estilo en la pagina principal](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/ae25bc52b41a0e307c764525b3076abac77bb8d8)
+2. [Creación página nuevo elemento](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/71d3f1b17328c685f91d679d57e7d84512635a8e)
+3. [Adición de colores en style.css](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/b053ff84a1588810f0e4130615d23d1138d24e0f)
+4. [Eliminación de código sobrante del boostrap](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/984201bec7fd6b50f68b568bf2303faf08799b96)
+5. [Corrección página nuevo elemento](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/6ba4cfaf3b8b497f81ed2f42d19afd639672aec4)
+
+* ficheros en los que participo
+
+1. [index.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/index.html)
+2. [nuevo_elemento.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/nuevo_elemento.html)
+3. [página_detalle.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/p%C3%A1gina_detalle.html)
+4. [product-detail.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/product-detail.css)
+5. [styles.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/styles.css)
 
 
 * **Alejandro:**
 * He participado en la creación de la página de detalle del producto y sus estilos CSS. También he completado el formulario de creación añadiendo desplegables para el tipo de producto y el género, un selector de imagen, un campo numérico para el precio y casillas para elegir varias tallas. Además, he corregido faltas de ortografía, traducido comentarios al inglés y actualizado los enlaces del catálogo para que apunten a la página de detalle.
 
-* cinco commits 
+* Cinco commits más importantes 
 
 1. [Crear la página de detalle y sus estilos CSS](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/99ad789ce5880c83ec6de69971de7339e1ec0f1e)
 2. [Mejorar los campos de precio y tallas](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/d85b65a454561c5487e22dbd735472c8152dc9d8)
