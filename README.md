@@ -120,3 +120,12 @@
 3. [Modificaciones del nav](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/50bdd45130184a70febdf77566d35ef880ade39b)
 4. [Modificación del footer](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/994a479c5cb230ca33b60bfded0f3c8a35ce7ec3)
 5. [Modificación header](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/857653f37204fbafca3af464298e638b96a0ca31)
+
+
+* ficheros en los que participo
+
+1. [index.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/index.html)
+2. [styles.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/styles.css)
+3. [página_detalle.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/p%C3%A1gina_detalle.html)
+4. [product-detail.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/product-detail.css)
+5. [nuevo_elemento.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/nuevo_elemento.html)
