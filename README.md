@@ -107,6 +107,22 @@
 
 
 * **Sergio:**
+* He participado en la pagina de detalle del producto y estilos, haciendo un diseño interactivo en las reseñas en las puntuaciones y fechas, también añadiendo perfiles en las reseñas para que sean usuarios los que las cuelguen y en la página principal he hecho que todos los botones de ver detalles funcionen redirigiendonos al producto de vaquero en detalle.
+En la página de nuevo elemento he alineado las etiquetas y añadido márgenes.
+
+* cinco commits
+1. [Fechas en reseña realistas con un rango desde 2018-2030 en año](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/f6d4f5fe911e36f4ac6d00cdb3f05c998a95b0e3) 
+2. [rediseño de review, puntuacion interactiva y reseña con contador de caracteres](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/41d1c68f708c86f2974e52f01a4669673bb16e83)
+3. [fotos de perfil en las reseñas (pfp por defecto con iniciales)](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/ccb97bd2f43706678416aa1bb1bba5a9e50ec3d1)
+4. [correcion de la pagina de detalles de sergio y alejandro](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/e9c9c408e08ac20e28d188d90af23795431016a2)
+5. [cambio autor x usuario pagina detalle](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/156246f1dbe8d8f3b7c9047ccb8fc8b44ea01f87)
+
+* ficheros en los que participo
+
+1. [index.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/index.html)
+2. [nuevo_elemento.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/nuevo_elemento.html)
+3. [página_detalle.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/p%C3%A1gina_detalle.html)
+4. [product-detail.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/product-detail.css)
 
 
 
