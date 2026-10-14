@@ -58,11 +58,11 @@
 
   ## Práctica 1
   ### Imágenes de las páginas
-  * **Página principal: ![Captura de pantalla de página principal](/Capturas%20de%20pantalla%20practica%201/Captura%20de%20pantalla%202026-10-14%20115618.png) ![Captura de pantalla de página principal](/Capturas%20de%20pantalla%20practica%201/Captura%20de%20pantalla%202026-10-14%20115633.png)
+  * **Página principal**: ![Captura de pantalla de página principal](/Capturas%20de%20pantalla%20practica%201/Captura%20de%20pantalla%202026-10-14%20115618.png) ![Captura de pantalla de página principal](/Capturas%20de%20pantalla%20practica%201/Captura%20de%20pantalla%202026-10-14%20115633.png)
 
-* **Página de detalle: ![Captura de pantalla de página detalle](/Capturas%20de%20pantalla%20practica%201/Captura%20de%20pantalla%202026-10-14%20115653.png) ![Captura de pantalla de página detalle](/Capturas%20de%20pantalla%20practica%201/Captura%20de%20pantalla%202026-10-14%20115703.png)
+* **Página de detalle**: ![Captura de pantalla de página detalle](/Capturas%20de%20pantalla%20practica%201/Captura%20de%20pantalla%202026-10-14%20115653.png) ![Captura de pantalla de página detalle](/Capturas%20de%20pantalla%20practica%201/Captura%20de%20pantalla%202026-10-14%20115703.png)
 
-* **Página de nuevo elemento: ![Captura de pantalla de página nuevo elemento](/Capturas%20de%20pantalla%20practica%201/Captura%20de%20pantalla%202026-10-14%20115804.png) ![Captura de pantalla de página nuevo elemento](/Capturas%20de%20pantalla%20practica%201/Captura%20de%20pantalla%202026-10-14%20115810.png)
+* **Página de nuevo elemento**: ![Captura de pantalla de página nuevo elemento](/Capturas%20de%20pantalla%20practica%201/Captura%20de%20pantalla%202026-10-14%20115804.png) ![Captura de pantalla de página nuevo elemento](/Capturas%20de%20pantalla%20practica%201/Captura%20de%20pantalla%202026-10-14%20115810.png)
 
 
 ### Participaciones
