@@ -71,7 +71,23 @@
 
 
 * **Alejandro:**
+* He participado en la creación de la página de detalle del producto y sus estilos CSS. También he completado el formulario de creación añadiendo desplegables para el tipo de producto y el género, un selector de imagen, un campo numérico para el precio y casillas para elegir varias tallas. Además, he corregido faltas de ortografía, traducido comentarios al inglés y actualizado los enlaces del catálogo para que apunten a la página de detalle.
 
+* cinco commits 
+
+1. [Crear la página de detalle y sus estilos CSS](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/99ad789ce5880c83ec6de69971de7339e1ec0f1e)
+2. [Mejorar los campos de precio y tallas](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/d85b65a454561c5487e22dbd735472c8152dc9d8)
+3. [Añadir el selector de imagen](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/6ae89f2871aa638c96a20234ffb54be8d9df4dae)
+4. [Añadir la selección de género](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/acceec269e04503ee1463067eb26466cda395170)
+5. [Añadir el desplegable de tipo de producto](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/6b017b11a829d8ecb59e07bdd9ee11c2a80c699f)
+
+* ficheros en los que participo
+
+1. [index.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/index.html)
+2. [nuevo_elemento.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/nuevo_elemento.html)
+3. [página_detalle.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/p%C3%A1gina_detalle.html)
+4. [product-detail.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/product-detail.css)
+5. [styles.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/styles.css)
 
 
 * **Sergio:**
