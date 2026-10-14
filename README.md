@@ -53,8 +53,14 @@
   * Tipo de producto
   * Color
   * Rango de precio
-  
 
+
+
+  ## Práctica 1
+  ### Imagenes de las paginas
+  * **Pagina principal: ![Captura de pantalla de pagina principal](/Capturas%20de%20pantalla%20practica%201/Captura%20de%20pantalla%202026-10-14%20115618.png) ![Captura de pantalla de página principal](/Capturas%20de%20pantalla%20practica%201/Captura%20de%20pantalla%202026-10-14%20115633.png)
+
+* **Pagina de detalle
 
 
       
