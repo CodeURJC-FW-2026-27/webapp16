@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -151,7 +151,7 @@
                         <label class="form-label" for="review-comment">Escriba su reseña</label>
                         <textarea class="form-control" id="review-comment" name="comment" rows="4" maxlength="200" required></textarea>
                         <div class="d-flex justify-content-end mt-2">
-                            <small class="text-muted" id="char-counter">0/200</small>
+                            
                         </div>
                     </div>
                     <div class="col-12">
@@ -166,15 +166,6 @@
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
-        <script>
-            const reviewComment = document.getElementById('review-comment');
-            const charCounter = document.getElementById('char-counter');
-
-            reviewComment.addEventListener('input', function() {
-                const chars = this.value.length;
-                const maxChars = 200;
-                charCounter.textContent = chars + '/' + maxChars;
-            });
-        </script>
+       
 </body>
 </html>
