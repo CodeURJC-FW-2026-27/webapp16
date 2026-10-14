@@ -95,6 +95,12 @@
 
 
 * **Diego:**
+* He colaborado en la elaboración de la pagina principal, lo cual implica adición de imágenes de los productos y modificación en cada producto (información, precio, etc.). Por otro lado, he modificado la estética (colores y tamaños) del nav, header y footer. Tambien,he sustituido el contenido predeterminado por el que encaja con nuestro tema. He reestructurado el formulario y he modificado totalmente la estética para que concordase mejor con la estética general de la página.
 
+* cinco commits 
 
-      
+1. [Modificación del formulario (reestructuración y estética)](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/6d6734d902f5f3af8afeee2ad10279726c742346)
+2. [Adición de imágenes](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/994a479c5cb230ca33b60bfded0f3c8a35ce7ec3)
+3. [Modificaciones del nav](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/50bdd45130184a70febdf77566d35ef880ade39b)
+4. [Modificación del footer](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/994a479c5cb230ca33b60bfded0f3c8a35ce7ec3)
+5. [Modificación header](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/857653f37204fbafca3af464298e638b96a0ca31)
