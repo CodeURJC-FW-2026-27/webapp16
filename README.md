@@ -67,7 +67,23 @@
 
 ### Participaciones
 * **Ismael:**
+* He participado en la creación de la página principal y edición de la misma, modificando el grid dependiendo del tamaño de la pantalla. También he añadido la página de nuevo elemento em bruto para después corregir errores. Además de añadir la mayoria de imágenes
 
+* cinco commits 
+
+1. [Modificacion grid y cambios de estilo en la pagina principal](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/ae25bc52b41a0e307c764525b3076abac77bb8d8)
+2. [Creación página nuevo elemento](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/71d3f1b17328c685f91d679d57e7d84512635a8e)
+3. [Adición de colores en style.css](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/b053ff84a1588810f0e4130615d23d1138d24e0f)
+4. [Eliminación de código sobrante del boostrap](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/984201bec7fd6b50f68b568bf2303faf08799b96)
+5. [Corrección página nuevo elemento](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/6ba4cfaf3b8b497f81ed2f42d19afd639672aec4)
+
+* ficheros en los que participo
+
+1. [index.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/index.html)
+2. [nuevo_elemento.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/nuevo_elemento.html)
+3. [página_detalle.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/p%C3%A1gina_detalle.html)
+4. [product-detail.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/product-detail.css)
+5. [styles.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/styles.css)
 
 
 * **Alejandro:**
