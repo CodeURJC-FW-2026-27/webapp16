@@ -14,7 +14,37 @@
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/product-form.css" rel="stylesheet" />
     </head>
-     <!-- Header-->
+    
+    <body>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">B&P</a>
+                <div class="navbar-collapse product-navigation">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Menú</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Información</a></li>
+                        <li class="nav-item dropdown">
+                            <details class="product-categories">
+                            <summary class="nav-link dropdown-toggle">Categorías</summary>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#!">Unisex</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#!">Hombre</a></li>
+                                <li><a class="dropdown-item" href="#!">Mujer</a></li>
+                            </ul>
+                            </details>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            Carrito
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
         <header class="bg-brown py-5"><!--Custom background color-->
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
@@ -23,9 +53,11 @@
                 </div>
             </div>
         </header>
-    <body>
+
         <main class="new-product">
+            
             <div class="container">
+                <form>
                 <section class="new-product-card" aria-labelledby="new-product-title">
                     <h2 id="new-product-title">Datos del producto</h2>
                     <div class="new-product-field">
@@ -78,10 +110,11 @@
                     </div>
                     <div class="new-product-actions">
                         <a class="btn btn-outline-danger" href="index.html">Cancelar</a>
-                        <button class="btn btn-save" type="button">Guardar</button>
+                        <button class="btn btn-save" type="submit">Guardar</button>
                     </div>
                 </section>
             </div>
+            </form>
         </main>
                          <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">&copy; 2026 Bull and Pear</p></div>
