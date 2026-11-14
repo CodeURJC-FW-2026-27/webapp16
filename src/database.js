@@ -1,10 +1,22 @@
-const mongoose = require('mongoose');
+import { MongoClient } from 'mongodb';
 
-const defaultMongoUri = 'mongodb://127.0.0.1:27017/bullandpear';
+const url = 'mongodb://localhost:27017';
+const client = new MongoClient(url);
 
-async function connectDatabase(uri = process.env.MONGODB_URI || defaultMongoUri) {
-  await mongoose.connect(uri);
-  console.log('Connected to MongoDB');
+let db;
+
+export async function connectDatabase() {
+    try {
+        await client.connect();
+        db = client.db('bull-and-pear');
+        console.log('Conectado correctamente a la base de datos MongoDB');
+    } catch (error) {
+        console.error('Error al conectar a la base de datos:', error);
+        process.exit(1);
+    }
 }
 
-module.exports = { connectDatabase };
+// Función para obtener la colección de productos
+export function getProductsCollection() {
+    return db.collection('products');
+}

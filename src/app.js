@@ -1,35 +1,30 @@
-require('dotenv').config();
-
-const express = require('express');
-const mustacheExpress = require('mustache-express');
-const path = require('path');
-const { connectDatabase } = require('./database');
+import express from 'express';
+import mustacheExpress from 'mustache-express';
+import { connectDatabase } from './database.js';
 
 const app = express();
-const port = process.env.PORT || 3000;
-const viewsDirectory = path.join(__dirname, '..', 'views');
-const staticDirectory = path.join(__dirname, '..', 'startbootstrap-shop-homepage-gh-pages');
 
+
+// 1. Configuración del motor de plantillas Mustache
 app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
-app.set('views', viewsDirectory);
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static(staticDirectory));
+app.set('views', './views');
 
-async function start() {
-  await connectDatabase();
+// 2. Middleware para procesar los datos de los formularios (POST)
+app.use(express.urlencoded({ extended: true }));
 
-  app.listen(port, () => {
-    console.log(`Bull and Pear listening on port ${port}`);
-  });
-}
+// 3. Configuración de carpetas estáticas (CSS, JS, imágenes y la carpeta uploads)
+app.use(express.static('./public'));
+app.use('/uploads', express.static('./uploads'));
 
-if (require.main === module) {
-  start().catch((error) => {
-    console.error('Unable to start Bull and Pear:', error);
-    process.exitCode = 1;
-  });
-}
+// 4. Ruta de prueba temporal para comprobar que todo funciona
+app.get('/', (req, res) => {
+    res.send('<html><body><h1>Servidor de Bull and Pear funcionando correctamente</h1></body></html>');
+});
 
-module.exports = app;
+// 5. Conectar a la base de datos y arrancar el servidor web
+connectDatabase().then(() => {
+    app.listen(3000, () => {
+        console.log(`Servidor listo en http://localhost:3000/`);
+    });
+});
