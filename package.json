@@ -1,0 +1,19 @@
+{
+  "name": "bull-and-pear",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bull and Pear online clothing store",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5",
+    "mustache-express": "^1.3.2"
+  }
+}
