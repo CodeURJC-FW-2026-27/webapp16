@@ -1,0 +1,123 @@
+[
+  {
+    "product": "Pantalones vaqueros unisex",
+    "price": 30.00,
+    "gender": "Unisex",
+    "productType": "Pantalón",
+    "colour": "Azul vaquero",
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "comment": "Pantalones vaqueros de corte recto, cómodos y versátiles para el día a día. Combínalos con una camiseta básica o una sudadera para completar tu conjunto.",
+    "materials": "Tejido denim de algodón, resistente y cómodo para el uso diario. Costuras reforzadas, cierre de cremallera y botón metálico.",
+    "image": "/Imagenes/pantalonvqr.jpg",
+    "reviews": [
+      {
+        "author": "Laura García",
+        "date": "2026-10-01",
+        "rating": 5,
+        "comment": "Son cómodos y combinan muy bien con una camiseta básica. La talla me queda como esperaba."
+      },
+      {
+        "author": "Pablo Martín",
+        "date": "2026-10-05",
+        "rating": 4,
+        "comment": "Buen corte y buen precio. El color es fácil de combinar y el tejido resulta cómodo."
+      }
+    ]
+  },
+  {
+    "product": "Camiseta blanca lisa unisex",
+    "price": 18.00,
+    "gender": "Unisex",
+    "productType": "Camiseta",
+    "colour": "Blanco",
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "comment": "Camiseta básica de manga corta y cuello redondo, suave al tacto y perfecta como fondo de armario.",
+    "materials": "100% algodón orgánico peinado de gramaje medio con costuras dobles.",
+    "image": "/Imagenes/camiseta-blanca.jpg",
+    "reviews": []
+  },
+  {
+    "product": "Chaqueta negra mujer",
+    "price": 25.00,
+    "gender": "Mujer",
+    "productType": "Chaqueta",
+    "colour": "Negro",
+    "sizes": ["S", "M", "L"],
+    "comment": "Chaqueta entallada de entretiempo con cierre frontal y bolsillos laterales discretos.",
+    "materials": "Poliéster reciclado resistente al viento con forro interior ligero.",
+    "image": "/Imagenes/chqt.jpg",
+    "reviews": []
+  },
+  {
+    "product": "Bañador azul mujer",
+    "price": 30.00,
+    "gender": "Mujer",
+    "productType": "Bañador",
+    "colour": "Azul marino",
+    "sizes": ["XS", "S", "M", "L"],
+    "comment": "Bañador entero de secado rápido con tirantes anchos y espalda escotada cómoda.",
+    "materials": "Poliamida y elastano resistentes al cloro con forro interior completo.",
+    "image": "/Imagenes/Bañador-azul.jpg",
+    "reviews": []
+  },
+  {
+    "product": "Tacones altos",
+    "price": 30.00,
+    "gender": "Mujer",
+    "productType": "Calzado",
+    "colour": "Negro",
+    "sizes": ["S", "M", "L"],
+    "comment": "Zapatos de tacón estilizado con plantilla acolchada pensados para eventos y ocasiones especiales.",
+    "materials": "Exterior sintético de acabado mate con suela antideslizante.",
+    "image": "/Imagenes/tacones.jpg",
+    "reviews": []
+  },
+  {
+    "product": "Sudadera hombre",
+    "price": 45.00,
+    "gender": "Hombre",
+    "productType": "Sudadera",
+    "colour": "Negro",
+    "sizes": ["S", "M", "L", "XL"],
+    "comment": "Sudadera clásica de corte relajado con puños y bajo elásticos de canalé.",
+    "materials": "80% algodón y 20% poliéster con interior afelpado cálido.",
+    "image": "/Imagenes/sudadera-hombre.jpg",
+    "reviews": []
+  },
+  {
+    "product": "Gorro estampado a cuadros",
+    "price": 18.00,
+    "gender": "Unisex",
+    "productType": "Gorro",
+    "colour": "Multicolor cuadros",
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "comment": "Gorro de punto suave con estampado de cuadros ideal para proteger del frío en invierno.",
+    "materials": "Tejido acrílico suave de punto doble con vuelta ajustable.",
+    "image": "/Imagenes/gorro.jpg",
+    "reviews": []
+  },
+  {
+    "product": "Bufanda de rayas",
+    "price": 20.00,
+    "gender": "Unisex",
+    "productType": "Bufanda",
+    "colour": "Rayas",
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "comment": "Bufanda larga con diseño de rayas y flecos en los extremos para los días fríos.",
+    "materials": "Mezcla de viscosa y algodón cepillado de tacto cálido.",
+    "image": "/Imagenes/bufanda.jpg",
+    "reviews": []
+  },
+  {
+    "product": "Pack de calcetines",
+    "price": 9.00,
+    "gender": "Unisex",
+    "productType": "Calcetines",
+    "colour": "Surtido",
+    "sizes": ["S", "M", "L"],
+    "comment": "Pack ahorro de calcetines tobilleros transpirables para uso diario y deportivo.",
+    "materials": "75% algodón, 22% poliamida y 3% elastano con refuerzo en puntera y talón.",
+    "image": "/Imagenes/calcetines.jpg",
+    "reviews": []
+  }
+]
