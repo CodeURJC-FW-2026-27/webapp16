@@ -64,7 +64,21 @@
                         <dt class="col-sm-5">Tipo de producto</dt><dd class="col-sm-7">Pantalón</dd>
                         <dt class="col-sm-5">Color</dt><dd class="col-sm-7">Azul vaquero</dd>
                         <dt class="col-sm-5">Materiales</dt><dd class="col-sm-7">Tejido denim de algodón, resistente y cómodo para el uso diario. Costuras reforzadas, cierre de cremallera y botón metálico.</dd>
-                        <dt class="col-sm-5">Tallas disponibles</dt><dd class="col-sm-7">XS, S, M, L y XL</dd>
+                        <dt class="col-sm-5">Tallas disponibles</dt>
+                        <dd class="col-sm-7">
+                            <div class="size-selector" role="radiogroup" aria-label="Tallas disponibles">
+                                <input type="radio" id="size-xs" name="size" value="XS" />
+                                <label for="size-xs">XS</label>
+                                <input type="radio" id="size-s" name="size" value="S" />
+                                <label for="size-s">S</label>
+                                <input type="radio" id="size-m" name="size" value="M" checked />
+                                <label for="size-m">M</label>
+                                <input type="radio" id="size-l" name="size" value="L" />
+                                <label for="size-l">L</label>
+                                <input type="radio" id="size-xl" name="size" value="XL" />
+                                <label for="size-xl">XL</label>
+                            </div>
+                        </dd>
                     </dl>
                     <!-- These actions are intentionally inactive in Practice 1. -->
                     <div class="d-flex flex-wrap gap-2">

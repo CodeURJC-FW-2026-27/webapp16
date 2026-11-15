@@ -99,27 +99,17 @@
                     <div class="new-product-field">
                         <fieldset>
                             <legend class="form-label fs-6">Tallas disponibles</legend>
-                            <div class="d-flex flex-wrap gap-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" id="size-xs" name="size" type="checkbox" value="XS" />
-                                    <label class="form-check-label" for="size-xs">XS</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" id="size-s" name="size" type="checkbox" value="S" />
-                                    <label class="form-check-label" for="size-s">S</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" id="size-m" name="size" type="checkbox" value="M" />
-                                    <label class="form-check-label" for="size-m">M</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" id="size-l" name="size" type="checkbox" value="L" />
-                                    <label class="form-check-label" for="size-l">L</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" id="size-xl" name="size" type="checkbox" value="XL" />
-                                    <label class="form-check-label" for="size-xl">XL</label>
-                                </div>
+                            <div class="size-selector" role="radiogroup" aria-label="Tallas disponibles">
+                                <input type="radio" id="size-xs" name="size" value="XS" />
+                                <label for="size-xs">XS</label>
+                                <input type="radio" id="size-s" name="size" value="S" />
+                                <label for="size-s">S</label>
+                                <input type="radio" id="size-m" name="size" value="M" />
+                                <label for="size-m">M</label>
+                                <input type="radio" id="size-l" name="size" value="L" />
+                                <label for="size-l">L</label>
+                                <input type="radio" id="size-xl" name="size" value="XL" />
+                                <label for="size-xl">XL</label>
                             </div>
                         </fieldset>
                     </div>
