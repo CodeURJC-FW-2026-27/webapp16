@@ -3,34 +3,42 @@ import { getProducts } from './database.js';
 
 const router = express.Router();
 
-// Ruta principal: catálogo con paginación, búsqueda y categorías
-router.get('/', async (req, res) => {
-    const page = Math.max(parseInt(req.query.page) || 1, 1);
-    const search = (req.query.search || '').trim();
-    const category = req.query.category || '';
-    
-    const { products, totalPages } = await getProducts({ page, search, category });
+router.get('/', async (req, res, next) => {
+    try {
+        const requestedPage = Number.parseInt(req.query.page, 10);
+        const page = Number.isInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+        const search = typeof req.query.search === 'string' ? req.query.search.trim() : '';
+        const category = typeof req.query.category === 'string' ? req.query.category : '';
 
-    // Preparamos el precio con 2 decimales para Mustache
-    const productsView = products.map(p => ({ ...p, priceText: p.price.toFixed(2) }));
+        const { products, totalPages } = await getProducts({ page, search, category });
+        const productsView = products.map((product) => ({
+            ...product,
+            priceText: Number(product.price).toFixed(2),
+        }));
+        const extra = (search ? `&search=${encodeURIComponent(search)}` : '')
+            + (category ? `&category=${encodeURIComponent(category)}` : '');
+        const pages = Array.from({ length: totalPages }, (_, index) => {
+            const number = index + 1;
+            return { number, current: number === page };
+        });
 
-    // Para conservar búsqueda y categoría al cambiar de página en la paginación
-    const extra = (search ? `&search=${encodeURIComponent(search)}` : '') +
-                  (category ? `&category=${encodeURIComponent(category)}` : '');
-
-    res.render('index', {
-        products: productsView,
-        search,
-        category,
-        hasProducts: products.length > 0,
-        currentPage: page,
-        totalPages,
-        hasPrev: page > 1,
-        hasNext: page < totalPages,
-        prev: page - 1,
-        next: page + 1,
-        extra
-    });
+        res.render('index', {
+            products: productsView,
+            search,
+            category,
+            hasProducts: products.length > 0,
+            currentPage: page,
+            totalPages,
+            pages,
+            hasPrev: page > 1,
+            hasNext: page < totalPages,
+            prev: page - 1,
+            next: page + 1,
+            extra,
+        });
+    } catch (error) {
+        next(error);
+    }
 });
 
 export default router;
