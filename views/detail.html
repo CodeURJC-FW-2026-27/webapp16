@@ -94,6 +94,9 @@
                             <p class="mb-2">Puntuación: <strong>{{rating}} de 5</strong></p>
                             <p class="mb-0">{{comment}}</p>
                         </div>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex gap-2">
+                            <a class="btn btn-outline-dark" href="/product/{{product._id}}/review/{{_id}}/edit">Editar</a>
+                        </div>
                     </article>
                 </div>
                 {{/product.reviews}}

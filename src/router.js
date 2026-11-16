@@ -1,5 +1,5 @@
 import express from 'express';
-import { addReview, getProduct, getProducts } from './database.js';
+import { addReview, getProduct, getProducts, getReview, updateReview } from './database.js';
 
 const router = express.Router();
 const MIN_REVIEW_DATE = '2018-01-01';
@@ -77,6 +77,61 @@ router.get('/product/:id', async (req, res, next) => {
             return res.status(404).send('Producto no encontrado.');
         }
         res.render('detail', { product, ratingOptions: getRatingOptions(), today: getToday() });
+    } catch (error) {
+        next(error);
+    }
+});
+
+router.get('/product/:id/review/:reviewId/edit', async (req, res, next) => {
+    try {
+        const review = await getReview(req.params.id, req.params.reviewId);
+        if (!review) {
+            return res.status(404).send('Producto o reseña no encontrada.');
+        }
+        res.render('edit_review', {
+            productId: req.params.id,
+            review,
+            today: getToday(),
+            ratingOptions: getRatingOptions(review.rating),
+        });
+    } catch (error) {
+        next(error);
+    }
+});
+
+router.post('/product/:id/review/:reviewId/edit', async (req, res, next) => {
+    try {
+        const existingReview = await getReview(req.params.id, req.params.reviewId);
+        if (!existingReview) {
+            return res.status(404).send('Producto o reseña no encontrada.');
+        }
+
+        const body = req.body || {};
+        const reviewInput = {
+            author: typeof body.author === 'string' ? body.author : '',
+            date: typeof body.date === 'string' ? body.date : '',
+            rating: typeof body.rating === 'string' ? body.rating : '',
+            comment: typeof body.comment === 'string' ? body.comment : '',
+        };
+        const errors = validateReview(reviewInput);
+        if (errors.length > 0) {
+            return res.status(400).render('edit_review', {
+                productId: req.params.id,
+                review: { ...existingReview, ...reviewInput },
+                errors,
+                today: getToday(),
+                ratingOptions: getRatingOptions(reviewInput.rating),
+            });
+        }
+
+        const updated = await updateReview(req.params.id, req.params.reviewId, {
+            ...reviewInput,
+            rating: Number(reviewInput.rating),
+        });
+        if (!updated) {
+            return res.status(404).send('Producto o reseña no encontrada.');
+        }
+        res.render('saved_review', { productId: req.params.id });
     } catch (error) {
         next(error);
     }

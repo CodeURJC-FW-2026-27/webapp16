@@ -1,0 +1,52 @@
+{{> partials/header }}
+
+<link href="/css/product-detail.css" rel="stylesheet" />
+
+<main class="container px-4 px-lg-5 py-5">
+    <section class="mt-5" id="review-form" aria-labelledby="edit-review-title">
+        {{#errors}}
+        <div class="alert alert-danger" role="alert">
+            <ul class="mb-0">
+                {{#errors}}
+                <li>{{.}}</li>
+                {{/errors}}
+            </ul>
+        </div>
+        {{/errors}}
+        <h1 class="fw-bolder mb-4" id="edit-review-title">Editar reseña</h1>
+        <form method="post" action="/product/{{productId}}/review/{{review._id}}/edit#review-form">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label" for="review-author">Usuario</label>
+                    <div class="input-group">
+                        <span class="input-group-text">@</span>
+                        <input class="form-control" id="review-author" name="author" type="text" placeholder="usuario" maxlength="50" value="{{review.author}}" required />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="review-date">Fecha</label>
+                    <input class="form-control" id="review-date" name="date" type="date" min="2018-01-01" max="{{today}}" value="{{review.date}}" required />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Puntuación</label>
+                    <div class="rating-selector" role="radiogroup" aria-label="Puntuación del producto">
+                        {{#ratingOptions}}
+                        <input class="btn-check" style="display: block" type="radio" id="rating-{{value}}" name="rating" value="{{value}}" {{#required}}required{{/required}} {{#selected}}checked{{/selected}} />
+                        <label for="rating-{{value}}">{{value}}</label>
+                        {{/ratingOptions}}
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label class="form-label" for="review-comment">Escriba su reseña</label>
+                    <textarea class="form-control" id="review-comment" name="comment" rows="4" minlength="10" maxlength="200" required>{{review.comment}}</textarea>
+                </div>
+                <div class="col-12 d-flex gap-2">
+                    <button class="btn btn-dark" type="submit">Guardar cambios</button>
+                    <a class="btn btn-outline-dark" href="/product/{{productId}}">Cancelar</a>
+                </div>
+            </div>
+        </form>
+    </section>
+</main>
+
+{{> partials/footer }}
