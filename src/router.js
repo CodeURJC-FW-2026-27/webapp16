@@ -1,5 +1,5 @@
 import express from 'express';
-import { addReview, getProduct, getProducts, getReview, updateReview } from './database.js';
+import { addReview, deleteReview, getProduct, getProducts, getReview, updateReview } from './database.js';
 
 const router = express.Router();
 const MIN_REVIEW_DATE = '2018-01-01';
@@ -132,6 +132,18 @@ router.post('/product/:id/review/:reviewId/edit', async (req, res, next) => {
             return res.status(404).send('Producto o reseña no encontrada.');
         }
         res.render('saved_review', { productId: req.params.id });
+    } catch (error) {
+        next(error);
+    }
+});
+
+router.post('/product/:id/review/:reviewId/delete', async (req, res, next) => {
+    try {
+        const deleted = await deleteReview(req.params.id, req.params.reviewId);
+        if (!deleted) {
+            return res.status(404).send('Producto o reseña no encontrada.');
+        }
+        res.render('deleted_review', { productId: req.params.id });
     } catch (error) {
         next(error);
     }

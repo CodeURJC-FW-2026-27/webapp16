@@ -96,6 +96,9 @@
                         </div>
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex gap-2">
                             <a class="btn btn-outline-dark" href="/product/{{product._id}}/review/{{_id}}/edit">Editar</a>
+                            <form method="post" action="/product/{{product._id}}/review/{{_id}}/delete">
+                                <button class="btn btn-outline-danger" type="submit">Borrar</button>
+                            </form>
                         </div>
                     </article>
                 </div>
@@ -122,7 +125,7 @@
                         <label class="form-label" for="review-author">Usuario</label>
                         <div class="input-group">
                             <span class="input-group-text">@</span>
-                            <input class="form-control" id="review-author" name="author" type="text" placeholder="usuario" maxlength="50" value="{{newReview.author}}" required />
+                            <input class="form-control" id="review-author" name="author" type="text" placeholder="usuario" maxlength="50" pattern="\S(?:[\s\S]*\S)?" title="El usuario no puede tener espacios al principio o al final." value="{{newReview.author}}" required />
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -140,7 +143,7 @@
                     </div>
                     <div class="col-12">
                         <label class="form-label" for="review-comment">Escriba su reseña</label>
-                        <textarea class="form-control" id="review-comment" name="comment" rows="4" minlength="10" maxlength="200" required>{{newReview.comment}}</textarea>
+                        <textarea class="form-control" id="review-comment" name="comment" rows="4" minlength="10" maxlength="200" pattern="[\s\S]*\S[\s\S]*" title="El comentario no puede estar vacío." required>{{newReview.comment}}</textarea>
                     </div>
                     <div class="col-12">
                         <button class="btn btn-dark" type="submit">Crear reseña</button>
