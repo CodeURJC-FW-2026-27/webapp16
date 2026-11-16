@@ -11,12 +11,14 @@
     "image": "/Imagenes/pantalonvqr.jpg",
     "reviews": [
       {
+        "_id": "673b1a000000000000000001",
         "author": "Laura García",
         "date": "2026-10-01",
         "rating": 5,
         "comment": "Son cómodos y combinan muy bien con una camiseta básica. La talla me queda como esperaba."
       },
       {
+        "_id": "673b1a000000000000000002",
         "author": "Pablo Martín",
         "date": "2026-10-05",
         "rating": 4,

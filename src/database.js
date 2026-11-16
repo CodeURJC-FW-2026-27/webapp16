@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 
 const url = 'mongodb://localhost:27017';
 const client = new MongoClient(url);
@@ -18,6 +18,87 @@ export async function connectDatabase() {
 // Función para obtener la colección de productos
 export function getProductsCollection() {
     return db.collection('products');
+}
+
+function getObjectId(id) {
+    if (typeof id !== 'string' || !ObjectId.isValid(id)) {
+        return null;
+    }
+    return new ObjectId(id);
+}
+
+export async function getProduct(id) {
+    const productId = getObjectId(id);
+    if (!productId) {
+        return null;
+    }
+    return getProductsCollection().findOne({ _id: productId });
+}
+
+export async function addReview(productId, review) {
+    const objectId = getObjectId(productId);
+    if (!objectId) {
+        return null;
+    }
+
+    const newReview = { ...review, _id: new ObjectId() };
+    const result = await getProductsCollection().updateOne(
+        { _id: objectId },
+        { $push: { reviews: newReview } },
+    );
+    return result.matchedCount === 1 ? newReview : null;
+}
+
+export async function getReview(productId, reviewId) {
+    const productObjectId = getObjectId(productId);
+    const reviewObjectId = getObjectId(reviewId);
+    if (!productObjectId || !reviewObjectId) {
+        return null;
+    }
+
+    const product = await getProductsCollection().findOne(
+        { _id: productObjectId, 'reviews._id': reviewObjectId },
+        { projection: { reviews: { $elemMatch: { _id: reviewObjectId } } } },
+    );
+    return product && product.reviews.length > 0 ? product.reviews[0] : null;
+}
+
+export async function updateReview(productId, reviewId, review) {
+    const productObjectId = getObjectId(productId);
+    const reviewObjectId = getObjectId(reviewId);
+    if (!productObjectId || !reviewObjectId) {
+        return false;
+    }
+
+    const fields = {};
+    for (const field of ['author', 'date', 'rating', 'comment']) {
+        if (Object.prototype.hasOwnProperty.call(review, field)) {
+            fields[`reviews.$.${field}`] = review[field];
+        }
+    }
+    if (Object.keys(fields).length === 0) {
+        return false;
+    }
+
+    const result = await getProductsCollection().updateOne(
+        { _id: productObjectId, 'reviews._id': reviewObjectId },
+        { $set: fields },
+    );
+    return result.matchedCount === 1;
+}
+
+export async function deleteReview(productId, reviewId) {
+    const productObjectId = getObjectId(productId);
+    const reviewObjectId = getObjectId(reviewId);
+    if (!productObjectId || !reviewObjectId) {
+        return false;
+    }
+
+    const result = await getProductsCollection().updateOne(
+        { _id: productObjectId },
+        { $pull: { reviews: { _id: reviewObjectId } } },
+    );
+    return result.modifiedCount === 1;
 }
 
 //Catálogo: paginación, búsqueda y categorías
