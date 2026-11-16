@@ -1,7 +1,19 @@
 import express from 'express';
-import { getProducts } from './database.js';
+import { getProduct, getProducts } from './database.js';
 
 const router = express.Router();
+
+router.get('/product/:id', async (req, res, next) => {
+    try {
+        const product = await getProduct(req.params.id);
+        if (!product) {
+            return res.status(404).send('Product not found.');
+        }
+        res.render('detail', { product });
+    } catch (error) {
+        next(error);
+    }
+});
 
 router.get('/', async (req, res, next) => {
     try {
