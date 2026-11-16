@@ -1,15 +1,120 @@
 import express from 'express';
-import { getProduct, getProducts } from './database.js';
+import { addReview, getProduct, getProducts } from './database.js';
 
 const router = express.Router();
+const MIN_REVIEW_DATE = '2018-01-01';
+const MAX_REVIEW_DATE = '2030-12-31';
+const MAX_AUTHOR_LENGTH = 50;
+const MAX_COMMENT_LENGTH = 200;
+
+function getToday() {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+}
+
+export function validateReview(review) {
+    const errors = [];
+    const { author, date, rating, comment } = review;
+
+    if (typeof author !== 'string' || author.trim().length === 0) {
+        errors.push('El usuario es obligatorio.');
+    } else {
+        if (author !== author.trim()) {
+            errors.push('El usuario no puede tener espacios al principio o al final.');
+        }
+        if (author.length > MAX_AUTHOR_LENGTH) {
+            errors.push('El usuario no puede superar los 50 caracteres.');
+        }
+    }
+
+    const validDateFormat = typeof date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(date);
+    const parsedDate = validDateFormat ? new Date(`${date}T00:00:00.000Z`) : null;
+    const validDate = parsedDate
+        && !Number.isNaN(parsedDate.getTime())
+        && parsedDate.toISOString().slice(0, 10) === date;
+    if (!validDate) {
+        errors.push('La fecha debe ser válida y tener el formato AAAA-MM-DD.');
+    } else {
+        if (date < MIN_REVIEW_DATE || date > MAX_REVIEW_DATE) {
+            errors.push('La fecha debe estar entre el 1 de enero de 2018 y el 31 de diciembre de 2030.');
+        }
+        const today = getToday();
+        if (date > today) {
+            errors.push('La fecha no puede ser posterior a hoy');
+        }
+    }
+
+    const numericRating = typeof rating === 'number'
+        ? rating
+        : typeof rating === 'string' && /^[1-5]$/.test(rating)
+            ? Number(rating)
+            : NaN;
+    if (!Number.isInteger(numericRating) || numericRating < 1 || numericRating > 5) {
+        errors.push('La puntuación debe ser un número entero entre 1 y 5.');
+    }
+
+    if (typeof comment !== 'string' || comment.trim().length === 0) {
+        errors.push('El comentario es obligatorio.');
+    } else if (comment.length < 10 || comment.length > MAX_COMMENT_LENGTH) {
+        errors.push('El comentario debe tener entre 10 y 200 caracteres.');
+    }
+
+    return errors;
+}
+
+function getRatingOptions(selectedRating = '') {
+    return [1, 2, 3, 4, 5].map((value) => ({
+        value,
+        required: value === 1,
+        selected: String(value) === String(selectedRating),
+    }));
+}
 
 router.get('/product/:id', async (req, res, next) => {
     try {
         const product = await getProduct(req.params.id);
         if (!product) {
-            return res.status(404).send('Product not found.');
+            return res.status(404).send('Producto no encontrado.');
         }
-        res.render('detail', { product });
+        res.render('detail', { product, ratingOptions: getRatingOptions(), today: getToday() });
+    } catch (error) {
+        next(error);
+    }
+});
+
+router.post('/product/:id/review/new', async (req, res, next) => {
+    try {
+        const product = await getProduct(req.params.id);
+        if (!product) {
+            return res.status(404).send('Producto no encontrado.');
+        }
+
+        const body = req.body || {};
+        const newReview = {
+            author: typeof body.author === 'string' ? body.author : '',
+            date: typeof body.date === 'string' ? body.date : '',
+            rating: typeof body.rating === 'string' ? body.rating : '',
+            comment: typeof body.comment === 'string' ? body.comment : '',
+        };
+        const errors = validateReview(newReview);
+        if (errors.length > 0) {
+            return res.status(400).render('detail', {
+                product,
+                errors,
+                newReview,
+                ratingOptions: getRatingOptions(newReview.rating),
+                today: getToday(),
+            });
+        }
+
+        const savedReview = await addReview(req.params.id, {
+            ...newReview,
+            rating: Number(newReview.rating),
+        });
+        if (!savedReview) {
+            return res.status(404).send('Producto no encontrado.');
+        }
+        res.render('saved_review', { productId: req.params.id });
     } catch (error) {
         next(error);
     }
