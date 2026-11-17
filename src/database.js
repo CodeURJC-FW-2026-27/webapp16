@@ -140,7 +140,7 @@ const CATEGORY_FIELD = 'gender';
 export async function getProducts({ page = 1, search = '', category = '' } = {}) {
     const query = {};
     if (search) {
-        const safe = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // Escapar caracteres especiales
+        const safe = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         query[NAME_FIELD] = { $regex: safe, $options: 'i' };
     }
     if (category) {
