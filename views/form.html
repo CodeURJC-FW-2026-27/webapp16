@@ -62,6 +62,9 @@
                     <label class="form-label" for="product-image">Imagen del producto</label>
                     <input class="form-control" id="product-image" name="image" type="file" accept="image/jpeg,image/png,image/webp,image/gif" {{#imageRequired}}required{{/imageRequired}} />
                     <p class="form-text">JPEG, PNG, WebP o GIF. Máximo 5 MB.</p>
+                    {{#editing}}
+                    <p class="form-text">Si no seleccionas otra imagen, se conservará la actual.</p>
+                    {{/editing}}
                 </div>
                 <div class="new-product-actions">
                     <a class="btn btn-outline-danger" href="{{cancelLink}}">Cancelar</a>

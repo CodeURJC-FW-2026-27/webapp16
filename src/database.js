@@ -49,6 +49,16 @@ export async function addProduct(product) {
     return result.insertedId;
 }
 
+export async function updateProduct(id, product) {
+    const productId = getObjectId(id);
+    if (!productId) return false;
+    const result = await getProductsCollection().updateOne(
+        { _id: productId },
+        { $set: product },
+    );
+    return result.matchedCount === 1;
+}
+
 export async function addReview(productId, review) {
     const objectId = getObjectId(productId);
     if (!objectId) {
