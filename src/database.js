@@ -15,7 +15,7 @@ export async function connectDatabase() {
     }
 }
 
-// Función para obtener la colección de productos
+// Get the products collection.
 export function getProductsCollection() {
     return db.collection('products');
 }
@@ -132,7 +132,7 @@ export async function deleteReview(productId, reviewId) {
     return result.modifiedCount === 1;
 }
 
-//Catálogo: paginación, búsqueda y categorías
+// Product catalog: pagination, search, and categories.
 const PAGE_SIZE = 6;
 const NAME_FIELD = 'product';
 const CATEGORY_FIELD = 'gender';

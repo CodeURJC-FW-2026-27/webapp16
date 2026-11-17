@@ -74,6 +74,16 @@ function getRatingOptions(selectedRating = '') {
     }));
 }
 
+function getReviewFromBody(req) {
+    const body = req.body || {};
+    return {
+        author: typeof body.author === 'string' ? body.author : '',
+        date: typeof body.date === 'string' ? body.date : '',
+        rating: typeof body.rating === 'string' ? body.rating : '',
+        comment: typeof body.comment === 'string' ? body.comment : '',
+    };
+}
+
 function getProductFormData(product = {}) {
     const editing = Boolean(product._id);
     return {
@@ -260,7 +270,16 @@ router.get('/product/:id', async (req, res, next) => {
                 buttonText: 'Volver al catálogo',
             });
         }
-        res.render('detail', { product, ratingOptions: getRatingOptions(), today: getToday() });
+        const review = { author: '', date: '', rating: '', comment: '' };
+        res.render('detail', {
+            product,
+            today: getToday(),
+            review,
+            ratingOptions: getRatingOptions(review.rating),
+            formTitle: 'Crear una reseña',
+            formAction: `/product/${product._id}/review/new#review-form`,
+            submitText: 'Crear reseña',
+        });
     } catch (error) {
         next(error);
     }
@@ -282,6 +301,10 @@ router.get('/product/:id/review/:reviewId/edit', async (req, res, next) => {
             review,
             today: getToday(),
             ratingOptions: getRatingOptions(review.rating),
+            formTitle: 'Editar reseña',
+            formAction: `/product/${req.params.id}/review/${review._id}/edit#review-form`,
+            submitText: 'Guardar cambios',
+            cancelLink: `/product/${req.params.id}`,
         });
     } catch (error) {
         next(error);
@@ -300,13 +323,7 @@ router.post('/product/:id/review/:reviewId/edit', async (req, res, next) => {
             });
         }
 
-        const body = req.body || {};
-        const reviewInput = {
-            author: typeof body.author === 'string' ? body.author : '',
-            date: typeof body.date === 'string' ? body.date : '',
-            rating: typeof body.rating === 'string' ? body.rating : '',
-            comment: typeof body.comment === 'string' ? body.comment : '',
-        };
+        const reviewInput = getReviewFromBody(req);
         const errors = validateReview(reviewInput);
         if (errors.length > 0) {
             return res.status(400).render('message', {
@@ -374,13 +391,7 @@ router.post('/product/:id/review/new', async (req, res, next) => {
             });
         }
 
-        const body = req.body || {};
-        const reviewInput = {
-            author: typeof body.author === 'string' ? body.author : '',
-            date: typeof body.date === 'string' ? body.date : '',
-            rating: typeof body.rating === 'string' ? body.rating : '',
-            comment: typeof body.comment === 'string' ? body.comment : '',
-        };
+        const reviewInput = getReviewFromBody(req);
         const errors = validateReview(reviewInput);
         if (errors.length > 0) {
             return res.status(400).render('message', {

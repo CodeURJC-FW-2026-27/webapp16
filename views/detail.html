@@ -66,39 +66,6 @@
                 {{/product.reviews}}
             </div>
         </section>
-        <section class="mt-5" id="review-form" aria-labelledby="new-review-title">
-            <h2 class="fw-bolder mb-4" id="new-review-title">Crear una reseña</h2>
-            <form method="post" action="/product/{{product._id}}/review/new#review-form">
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <label class="form-label" for="review-author">Usuario</label>
-                        <div class="input-group">
-                            <span class="input-group-text">@</span>
-                            <input class="form-control" id="review-author" name="author" type="text" placeholder="usuario" maxlength="50" pattern="\S(?:[\s\S]*\S)?" title="El usuario no puede tener espacios al principio o al final." required />
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label" for="review-date">Fecha</label>
-                        <input class="form-control" id="review-date" name="date" type="date" min="2018-01-01" max="{{today}}" required />
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Puntuación</label>
-                        <div class="rating-selector" role="radiogroup" aria-label="Puntuación del producto">
-                            {{#ratingOptions}}
-                            <input class="btn-check" style="display: block" type="radio" id="rating-{{value}}" name="rating" value="{{value}}" {{#required}}required{{/required}} {{#selected}}checked{{/selected}} />
-                            <label for="rating-{{value}}">{{value}}</label>
-                            {{/ratingOptions}}
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <label class="form-label" for="review-comment">Escriba su reseña</label>
-                        <textarea class="form-control" id="review-comment" name="comment" rows="4" minlength="10" maxlength="200" pattern="[\s\S]*\S[\s\S]*" title="El comentario no puede estar vacío." required></textarea>
-                    </div>
-                    <div class="col-12">
-                        <button class="btn btn-dark" type="submit">Crear reseña</button>
-                    </div>
-                </div>
-            </form>
-        </section>
+        {{> partials/review_form }}
     </main>
 {{> partials/footer }}
