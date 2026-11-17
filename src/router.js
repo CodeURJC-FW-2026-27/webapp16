@@ -74,7 +74,12 @@ router.get('/product/:id', async (req, res, next) => {
     try {
         const product = await getProduct(req.params.id);
         if (!product) {
-            return res.status(404).send('Producto no encontrado.');
+            return res.status(404).render('message', {
+                messageTitle: 'Producto no encontrado',
+                message: 'No se encontró el producto solicitado.',
+                link: '/',
+                buttonText: 'Volver al catálogo',
+            });
         }
         res.render('detail', { product, ratingOptions: getRatingOptions(), today: getToday() });
     } catch (error) {
@@ -86,7 +91,12 @@ router.get('/product/:id/review/:reviewId/edit', async (req, res, next) => {
     try {
         const review = await getReview(req.params.id, req.params.reviewId);
         if (!review) {
-            return res.status(404).send('Producto o reseña no encontrada.');
+            return res.status(404).render('message', {
+                messageTitle: 'Reseña no encontrada',
+                message: 'No se encontró el producto o la reseña solicitada.',
+                link: '/',
+                buttonText: 'Volver al catálogo',
+            });
         }
         res.render('edit_review', {
             productId: req.params.id,
@@ -103,7 +113,12 @@ router.post('/product/:id/review/:reviewId/edit', async (req, res, next) => {
     try {
         const existingReview = await getReview(req.params.id, req.params.reviewId);
         if (!existingReview) {
-            return res.status(404).send('Producto o reseña no encontrada.');
+            return res.status(404).render('message', {
+                messageTitle: 'Reseña no encontrada',
+                message: 'No se encontró el producto o la reseña solicitada.',
+                link: '/',
+                buttonText: 'Volver al catálogo',
+            });
         }
 
         const body = req.body || {};
@@ -115,12 +130,11 @@ router.post('/product/:id/review/:reviewId/edit', async (req, res, next) => {
         };
         const errors = validateReview(reviewInput);
         if (errors.length > 0) {
-            return res.status(400).render('edit_review', {
-                productId: req.params.id,
-                review: { ...existingReview, ...reviewInput },
-                errors,
-                today: getToday(),
-                ratingOptions: getRatingOptions(reviewInput.rating),
+            return res.status(400).render('message', {
+                messageTitle: 'Error de validación',
+                message: errors.join(' '),
+                link: `/product/${req.params.id}/review/${req.params.reviewId}/edit`,
+                buttonText: 'Volver al formulario',
             });
         }
 
@@ -129,9 +143,19 @@ router.post('/product/:id/review/:reviewId/edit', async (req, res, next) => {
             rating: Number(reviewInput.rating),
         });
         if (!updated) {
-            return res.status(404).send('Producto o reseña no encontrada.');
+            return res.status(404).render('message', {
+                messageTitle: 'Reseña no encontrada',
+                message: 'No se encontró el producto o la reseña solicitada.',
+                link: '/',
+                buttonText: 'Volver al catálogo',
+            });
         }
-        res.render('saved_review', { productId: req.params.id });
+        res.render('message', {
+            messageTitle: 'Reseña guardada',
+            message: 'Los cambios de la reseña se han guardado correctamente.',
+            link: `/product/${req.params.id}`,
+            buttonText: 'Volver al producto',
+        });
     } catch (error) {
         next(error);
     }
@@ -141,9 +165,19 @@ router.post('/product/:id/review/:reviewId/delete', async (req, res, next) => {
     try {
         const deleted = await deleteReview(req.params.id, req.params.reviewId);
         if (!deleted) {
-            return res.status(404).send('Producto o reseña no encontrada.');
+            return res.status(404).render('message', {
+                messageTitle: 'Reseña no encontrada',
+                message: 'No se encontró el producto o la reseña solicitada.',
+                link: '/',
+                buttonText: 'Volver al catálogo',
+            });
         }
-        res.render('deleted_review', { productId: req.params.id });
+        res.render('message', {
+            messageTitle: 'Reseña borrada',
+            message: 'La reseña se ha borrado correctamente.',
+            link: `/product/${req.params.id}`,
+            buttonText: 'Volver al producto',
+        });
     } catch (error) {
         next(error);
     }
@@ -153,35 +187,49 @@ router.post('/product/:id/review/new', async (req, res, next) => {
     try {
         const product = await getProduct(req.params.id);
         if (!product) {
-            return res.status(404).send('Producto no encontrado.');
+            return res.status(404).render('message', {
+                messageTitle: 'Producto no encontrado',
+                message: 'No se encontró el producto solicitado.',
+                link: '/',
+                buttonText: 'Volver al catálogo',
+            });
         }
 
         const body = req.body || {};
-        const newReview = {
+        const reviewInput = {
             author: typeof body.author === 'string' ? body.author : '',
             date: typeof body.date === 'string' ? body.date : '',
             rating: typeof body.rating === 'string' ? body.rating : '',
             comment: typeof body.comment === 'string' ? body.comment : '',
         };
-        const errors = validateReview(newReview);
+        const errors = validateReview(reviewInput);
         if (errors.length > 0) {
-            return res.status(400).render('detail', {
-                product,
-                errors,
-                newReview,
-                ratingOptions: getRatingOptions(newReview.rating),
-                today: getToday(),
+            return res.status(400).render('message', {
+                messageTitle: 'Error de validación',
+                message: errors.join(' '),
+                link: `/product/${req.params.id}#review-form`,
+                buttonText: 'Volver al formulario',
             });
         }
 
         const savedReview = await addReview(req.params.id, {
-            ...newReview,
-            rating: Number(newReview.rating),
+            ...reviewInput,
+            rating: Number(reviewInput.rating),
         });
         if (!savedReview) {
-            return res.status(404).send('Producto no encontrado.');
+            return res.status(404).render('message', {
+                messageTitle: 'Producto no encontrado',
+                message: 'No se encontró el producto solicitado.',
+                link: '/',
+                buttonText: 'Volver al catálogo',
+            });
         }
-        res.render('saved_review', { productId: req.params.id });
+        res.render('message', {
+            messageTitle: 'Reseña guardada',
+            message: 'La reseña se ha guardado correctamente.',
+            link: `/product/${req.params.id}`,
+            buttonText: 'Volver al producto',
+        });
     } catch (error) {
         next(error);
     }
