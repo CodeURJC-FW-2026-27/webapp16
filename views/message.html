@@ -7,6 +7,11 @@
                 <div class="card-body">
                     <h2 class="h3 fw-bolder mb-3">{{messageTitle}}</h2>
                     <p class="lead text-muted mb-4">{{message}}</p>
+                    {{#hasErrors}}
+                    <ul class="text-start text-danger">
+                        {{#errors}}<li>{{.}}</li>{{/errors}}
+                    </ul>
+                    {{/hasErrors}}
                     <a class="btn btn-dark" href="{{#link}}{{link}}{{/link}}{{^link}}/{{/link}}">
                         {{#buttonText}}{{buttonText}}{{/buttonText}}{{^buttonText}}Volver a la página principal{{/buttonText}}
                     </a>

@@ -44,6 +44,11 @@ export async function findProductByName(name, excludedId = '') {
     return getProductsCollection().findOne(query);
 }
 
+export async function addProduct(product) {
+    const result = await getProductsCollection().insertOne(product);
+    return result.insertedId;
+}
+
 export async function addReview(productId, review) {
     const objectId = getObjectId(productId);
     if (!objectId) {

@@ -1,0 +1,75 @@
+{{> partials/header }}
+
+<main class="new-product">
+    <div class="container">
+        <form action="{{formAction}}" method="post" enctype="multipart/form-data">
+            <section class="new-product-card" aria-labelledby="product-form-title">
+                <h2 id="product-form-title">{{formTitle}}</h2>
+                <div class="new-product-field">
+                    <label class="form-label" for="product-name">Nombre del producto</label>
+                    <input class="form-control" id="product-name" name="product" value="{{product.product}}" maxlength="80" pattern="[A-ZÁÉÍÓÚÜÑ].*" title="El nombre debe comenzar con una letra mayúscula" required />
+                </div>
+                <div class="new-product-field">
+                    <label class="form-label" for="price">Precio</label>
+                    <input class="form-control" id="price" name="price" type="number" value="{{product.price}}" min="0" max="100000" step="0.01" required />
+                </div>
+                <div class="new-product-field">
+                    <label class="form-label" for="product-gender">Género</label>
+                    <select class="form-select" id="product-gender" name="gender" required>
+                        <option value="">Selecciona un género</option>
+                        {{#genderOptions}}
+                        <option value="{{value}}" {{#selected}}selected{{/selected}}>{{value}}</option>
+                        {{/genderOptions}}
+                    </select>
+                </div>
+                <div class="new-product-field">
+                    <label class="form-label" for="product-type">Tipo de producto</label>
+                    <select class="form-select" id="product-type" name="productType" required>
+                        <option value="">Selecciona un tipo de producto</option>
+                        {{#typeOptions}}
+                        <option value="{{value}}" {{#selected}}selected{{/selected}}>{{value}}</option>
+                        {{/typeOptions}}
+                    </select>
+                </div>
+                <div class="new-product-field">
+                    <label class="form-label" for="colour">Color</label>
+                    <input class="form-control" id="colour" name="colour" value="{{product.colour}}" maxlength="80" required />
+                </div>
+                <fieldset class="new-product-field">
+                    <legend class="form-label fs-6">Tallas disponibles</legend>
+                    <p class="form-text">Selecciona al menos una talla.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        {{#sizeOptions}}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="size-{{value}}" name="sizes" value="{{value}}" {{#selected}}checked{{/selected}} />
+                            <label class="form-check-label" for="size-{{value}}">{{value}}</label>
+                        </div>
+                        {{/sizeOptions}}
+                    </div>
+                </fieldset>
+                <div class="new-product-field">
+                    <label class="form-label" for="comment">Descripción</label>
+                    <textarea class="form-control" id="comment" name="comment" rows="4" minlength="10" maxlength="1000" required>{{product.comment}}</textarea>
+                </div>
+                <div class="new-product-field">
+                    <label class="form-label" for="materials">Materiales</label>
+                    <textarea class="form-control" id="materials" name="materials" rows="3" maxlength="1000" required>{{product.materials}}</textarea>
+                </div>
+                {{#product.image}}
+                <img class="img-fluid mb-3" src="{{product.image}}" alt="Imagen actual del producto" />
+                {{/product.image}}
+                <div class="new-product-field">
+                    <label class="form-label" for="product-image">Imagen del producto</label>
+                    <input class="form-control" id="product-image" name="image" type="file" accept="image/jpeg,image/png,image/webp,image/gif" {{#imageRequired}}required{{/imageRequired}} />
+                    <p class="form-text">JPEG, PNG, WebP o GIF. Máximo 5 MB.</p>
+                </div>
+                <div class="new-product-actions">
+                    <a class="btn btn-outline-danger" href="{{cancelLink}}">Cancelar</a>
+                    <button class="btn btn-save" type="submit">Guardar</button>
+                </div>
+            </section>
+        </form>
+    </div>
+</main>
+
+{{> partials/footer }}

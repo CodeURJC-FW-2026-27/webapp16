@@ -1,5 +1,8 @@
 import express from 'express';
-import { addReview, deleteReview, getProduct, getProducts, getReview, updateReview } from './database.js';
+import { addProduct, addReview, deleteReview, getProduct, getProducts, getReview, updateReview } from './database.js';
+import { unlink } from 'node:fs/promises';
+import { upload } from './upload.js';
+import { PRODUCT_GENDERS, PRODUCT_TYPES, PRODUCT_SIZES, validateProduct } from './product-validation.js';
 
 const router = express.Router();
 const MIN_REVIEW_DATE = '2018-01-01';
@@ -69,6 +72,94 @@ function getRatingOptions(selectedRating = '') {
         selected: String(value) === String(selectedRating),
     }));
 }
+
+function getProductFormData(product = {}) {
+    return {
+        productForm: true,
+        formTitle: 'Crear producto',
+        formAction: '/product/new',
+        cancelLink: '/',
+        imageRequired: true,
+        product,
+        genderOptions: PRODUCT_GENDERS.map(value => ({ value, selected: value === product.gender })),
+        typeOptions: PRODUCT_TYPES.map(value => ({ value, selected: value === product.productType })),
+        sizeOptions: PRODUCT_SIZES.map(value => ({ value, selected: (product.sizes || []).includes(value) })),
+    };
+}
+
+function receiveProductImage(req, res, next) {
+    upload.single('image')(req, res, error => {
+        if (error) {
+            return res.status(400).render('message', {
+                messageTitle: 'No se ha podido subir la imagen',
+                message: error.code === 'LIMIT_FILE_SIZE'
+                    ? 'La imagen no puede superar los 5 MB.'
+                    : 'Selecciona un único archivo JPEG, PNG, WebP o GIF válido.',
+                link: req.originalUrl,
+                buttonText: 'Volver al formulario',
+            });
+        }
+        next();
+    });
+}
+
+router.get('/product/new', (req, res) => {
+    res.render('form', getProductFormData());
+});
+
+router.post('/product/new', receiveProductImage, async (req, res, next) => {
+    let saved = false;
+    try {
+        const body = req.body || {};
+        // Only accept the fields used by the product form.
+        const product = {
+            product: typeof body.product === 'string' ? body.product.trim() : '',
+            price: body.price,
+            gender: body.gender,
+            productType: body.productType,
+            colour: typeof body.colour === 'string' ? body.colour.trim() : '',
+            sizes: Array.isArray(body.sizes) ? body.sizes : typeof body.sizes === 'string' ? [body.sizes] : [],
+            comment: typeof body.comment === 'string' ? body.comment.trim() : '',
+            materials: typeof body.materials === 'string' ? body.materials.trim() : '',
+        };
+        const errors = await validateProduct(product);
+        if (!req.file) {
+            errors.push('Selecciona una imagen para el producto.');
+        }
+        if (errors.length > 0) {
+            if (req.file) await unlink(req.file.path);
+            return res.status(400).render('message', {
+                messageTitle: 'No se ha podido crear el producto',
+                message: 'Corrige los siguientes datos en el formulario.',
+                hasErrors: true,
+                errors,
+                link: '/product/new',
+                buttonText: 'Volver al formulario',
+            });
+        }
+
+        product.price = Number(product.price);
+        product.image = `/uploads/${req.file.filename}`;
+        product.reviews = [];
+        const id = await addProduct(product);
+        saved = true;
+        res.render('message', {
+            messageTitle: 'Producto creado',
+            message: 'El producto se ha guardado correctamente.',
+            link: `/product/${id}`,
+            buttonText: 'Ver producto',
+        });
+    } catch (error) {
+        if (!saved && req.file) {
+            try {
+                await unlink(req.file.path);
+            } catch (cleanupError) {
+                if (cleanupError.code !== 'ENOENT') console.error(cleanupError);
+            }
+        }
+        next(error);
+    }
+});
 
 router.get('/product/:id', async (req, res, next) => {
     try {
