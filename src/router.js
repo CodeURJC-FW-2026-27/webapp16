@@ -1,5 +1,9 @@
 import express from 'express';
-import { addReview, deleteReview, getProduct, getProducts, getReview, updateReview } from './database.js';
+import { addProduct, addReview, deleteProduct, deleteReview, getProduct, getProducts, getReview, updateProduct, updateReview } from './database.js';
+import { unlink } from 'node:fs/promises';
+import { basename } from 'node:path';
+import { upload } from './upload.js';
+import { PRODUCT_GENDERS, PRODUCT_TYPES, PRODUCT_SIZES, validateProduct } from './product-validation.js';
 
 const router = express.Router();
 const MIN_REVIEW_DATE = '2018-01-01';
@@ -69,6 +73,181 @@ function getRatingOptions(selectedRating = '') {
         selected: String(value) === String(selectedRating),
     }));
 }
+
+function getProductFormData(product = {}) {
+    const editing = Boolean(product._id);
+    return {
+        productForm: true,
+        formTitle: editing ? 'Editar producto' : 'Crear producto',
+        formAction: editing ? `/product/${product._id}/edit` : '/product/new',
+        cancelLink: editing ? `/product/${product._id}` : '/',
+        imageRequired: !editing,
+        editing,
+        product,
+        genderOptions: PRODUCT_GENDERS.map(value => ({ value, selected: value === product.gender })),
+        typeOptions: PRODUCT_TYPES.map(value => ({ value, selected: value === product.productType })),
+        sizeOptions: PRODUCT_SIZES.map(value => ({ value, selected: (product.sizes || []).includes(value) })),
+    };
+}
+
+function receiveProductImage(req, res, next) {
+    upload.single('image')(req, res, error => {
+        if (error) {
+            return res.status(400).render('message', {
+                messageTitle: 'No se ha podido subir la imagen',
+                message: error.code === 'LIMIT_FILE_SIZE'
+                    ? 'La imagen no puede superar los 5 MB.'
+                    : 'Selecciona un único archivo JPEG, PNG, WebP o GIF válido.',
+                link: req.originalUrl,
+                buttonText: 'Volver al formulario',
+            });
+        }
+        next();
+    });
+}
+
+router.get('/product/new', (req, res) => {
+    res.render('form', getProductFormData());
+});
+
+async function removeUploadedFile(filePath) {
+    try {
+        await unlink(filePath);
+    } catch (error) {
+        if (error.code !== 'ENOENT') console.error(error);
+    }
+}
+
+async function removeProductImage(image) {
+    // Only remove files in uploads; keep the static demo images.
+    if (typeof image !== 'string' || !image.startsWith('/uploads/')) return;
+    const filename = image.slice('/uploads/'.length);
+    if (filename && filename !== '.' && filename !== '..' && filename === basename(filename)) {
+        await removeUploadedFile(`./uploads/${filename}`);
+    }
+}
+
+async function saveProduct(req, res, next) {
+    let saved = false;
+    try {
+        const editing = Boolean(req.params.id);
+        const formLink = editing ? `/product/${req.params.id}/edit` : '/product/new';
+        const existingProduct = editing ? await getProduct(req.params.id) : null;
+        if (editing && !existingProduct) {
+            if (req.file) await removeUploadedFile(req.file.path);
+            return res.status(404).render('message', {
+                messageTitle: 'Producto no encontrado',
+                message: 'El producto que intentas editar no existe.',
+                link: '/',
+            });
+        }
+        const body = req.body || {};
+        // Only accept the fields used by the product form.
+        const product = {
+            product: typeof body.product === 'string' ? body.product.trim() : '',
+            price: body.price,
+            gender: body.gender,
+            productType: body.productType,
+            colour: typeof body.colour === 'string' ? body.colour.trim() : '',
+            sizes: Array.isArray(body.sizes) ? body.sizes : typeof body.sizes === 'string' ? [body.sizes] : [],
+            comment: typeof body.comment === 'string' ? body.comment.trim() : '',
+            materials: typeof body.materials === 'string' ? body.materials.trim() : '',
+        };
+        const errors = await validateProduct(product, req.params.id);
+        if (!req.file && !editing) {
+            errors.push('Selecciona una imagen para el producto.');
+        }
+        if (errors.length > 0) {
+            if (req.file) await removeUploadedFile(req.file.path);
+            return res.status(400).render('message', {
+                messageTitle: editing ? 'No se ha podido editar el producto' : 'No se ha podido crear el producto',
+                message: 'Corrige los siguientes datos en el formulario.',
+                hasErrors: true,
+                errors,
+                link: formLink,
+                buttonText: 'Volver al formulario',
+            });
+        }
+
+        product.price = Number(product.price);
+        product.image = req.file ? `/uploads/${req.file.filename}` : existingProduct.image;
+        let id;
+        if (editing) {
+            const updated = await updateProduct(req.params.id, product);
+            if (!updated) {
+                if (req.file) await removeUploadedFile(req.file.path);
+                return res.status(404).render('message', {
+                    messageTitle: 'Producto no encontrado',
+                    message: 'El producto ya no existe.',
+                    link: '/',
+                });
+            }
+            id = req.params.id;
+        } else {
+            product.reviews = [];
+            id = await addProduct(product);
+        }
+        saved = true;
+        if (editing && req.file) {
+            await removeProductImage(existingProduct.image);
+        }
+        res.render('message', {
+            messageTitle: editing ? 'Producto actualizado' : 'Producto creado',
+            message: editing ? 'Los cambios se han guardado correctamente.' : 'El producto se ha guardado correctamente.',
+            link: `/product/${id}`,
+            buttonText: 'Ver producto',
+        });
+    } catch (error) {
+        if (!saved && req.file) {
+            await removeUploadedFile(req.file.path);
+        }
+        next(error);
+    }
+}
+
+router.post('/product/new', receiveProductImage, saveProduct);
+
+router.get('/product/:id/edit', async (req, res, next) => {
+    try {
+        const product = await getProduct(req.params.id);
+        if (!product) {
+            return res.status(404).render('message', {
+                messageTitle: 'Producto no encontrado',
+                message: 'El producto que intentas editar no existe.',
+                link: '/',
+            });
+        }
+        res.render('form', getProductFormData(product));
+    } catch (error) {
+        next(error);
+    }
+});
+
+router.post('/product/:id/edit', receiveProductImage, saveProduct);
+
+router.post('/product/:id/delete', async (req, res, next) => {
+    try {
+        const product = await getProduct(req.params.id);
+        const deleted = product && await deleteProduct(req.params.id);
+        if (!deleted) {
+            return res.status(404).render('message', {
+                messageTitle: 'Producto no encontrado',
+                message: 'El producto que intentas borrar no existe.',
+                link: '/',
+            });
+        }
+        // Reviews are embedded in the product and are deleted with it.
+        await removeProductImage(product.image);
+        res.render('message', {
+            messageTitle: 'Producto eliminado',
+            message: 'El producto y sus reseñas se han eliminado correctamente.',
+            link: '/',
+            buttonText: 'Volver a la página principal',
+        });
+    } catch (error) {
+        next(error);
+    }
+});
 
 router.get('/product/:id', async (req, res, next) => {
     try {

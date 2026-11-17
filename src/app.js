@@ -3,6 +3,7 @@ import mustacheExpress from 'mustache-express';
 import { connectDatabase } from './database.js';
 import { loadInitialData } from './load_data.js';
 import router from './router.js';
+import { UPLOADS_FOLDER } from './upload.js';
 
 const app = express();
 
@@ -12,7 +13,7 @@ app.set('views', './views');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('./public'));
-app.use('/uploads', express.static('./uploads'));
+app.use('/uploads', express.static(UPLOADS_FOLDER));
 
 app.use('/', router);
 

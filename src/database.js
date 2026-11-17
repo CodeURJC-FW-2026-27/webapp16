@@ -35,6 +35,37 @@ export async function getProduct(id) {
     return getProductsCollection().findOne({ _id: productId });
 }
 
+export async function findProductByName(name, excludedId = '') {
+    const query = { product: name };
+    const productId = getObjectId(excludedId);
+    if (productId) {
+        query._id = { $ne: productId };
+    }
+    return getProductsCollection().findOne(query);
+}
+
+export async function addProduct(product) {
+    const result = await getProductsCollection().insertOne(product);
+    return result.insertedId;
+}
+
+export async function updateProduct(id, product) {
+    const productId = getObjectId(id);
+    if (!productId) return false;
+    const result = await getProductsCollection().updateOne(
+        { _id: productId },
+        { $set: product },
+    );
+    return result.matchedCount === 1;
+}
+
+export async function deleteProduct(id) {
+    const productId = getObjectId(id);
+    if (!productId) return false;
+    const result = await getProductsCollection().deleteOne({ _id: productId });
+    return result.deletedCount === 1;
+}
+
 export async function addReview(productId, review) {
     const objectId = getObjectId(productId);
     if (!objectId) {
