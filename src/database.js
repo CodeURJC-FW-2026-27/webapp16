@@ -35,6 +35,15 @@ export async function getProduct(id) {
     return getProductsCollection().findOne({ _id: productId });
 }
 
+export async function findProductByName(name, excludedId = '') {
+    const query = { product: name };
+    const productId = getObjectId(excludedId);
+    if (productId) {
+        query._id = { $ne: productId };
+    }
+    return getProductsCollection().findOne(query);
+}
+
 export async function addReview(productId, review) {
     const objectId = getObjectId(productId);
     if (!objectId) {
