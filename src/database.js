@@ -59,6 +59,13 @@ export async function updateProduct(id, product) {
     return result.matchedCount === 1;
 }
 
+export async function deleteProduct(id) {
+    const productId = getObjectId(id);
+    if (!productId) return false;
+    const result = await getProductsCollection().deleteOne({ _id: productId });
+    return result.deletedCount === 1;
+}
+
 export async function addReview(productId, review) {
     const objectId = getObjectId(productId);
     if (!objectId) {

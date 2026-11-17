@@ -1,5 +1,5 @@
 import express from 'express';
-import { addProduct, addReview, deleteReview, getProduct, getProducts, getReview, updateProduct, updateReview } from './database.js';
+import { addProduct, addReview, deleteProduct, deleteReview, getProduct, getProducts, getReview, updateProduct, updateReview } from './database.js';
 import { unlink } from 'node:fs/promises';
 import { basename } from 'node:path';
 import { upload } from './upload.js';
@@ -118,6 +118,15 @@ async function removeUploadedFile(filePath) {
     }
 }
 
+async function removeProductImage(image) {
+    // Only remove files in uploads; keep the static demo images.
+    if (typeof image !== 'string' || !image.startsWith('/uploads/')) return;
+    const filename = image.slice('/uploads/'.length);
+    if (filename && filename !== '.' && filename !== '..' && filename === basename(filename)) {
+        await removeUploadedFile(`./uploads/${filename}`);
+    }
+}
+
 async function saveProduct(req, res, next) {
     let saved = false;
     try {
@@ -179,13 +188,8 @@ async function saveProduct(req, res, next) {
             id = await addProduct(product);
         }
         saved = true;
-        // Only remove replaced uploads, never the static demo images.
-        if (editing && req.file && typeof existingProduct.image === 'string'
-            && existingProduct.image.startsWith('/uploads/')) {
-            const filename = existingProduct.image.slice('/uploads/'.length);
-            if (filename === basename(filename)) {
-                await removeUploadedFile(`./uploads/${filename}`);
-            }
+        if (editing && req.file) {
+            await removeProductImage(existingProduct.image);
         }
         res.render('message', {
             messageTitle: editing ? 'Producto actualizado' : 'Producto creado',
@@ -220,6 +224,30 @@ router.get('/product/:id/edit', async (req, res, next) => {
 });
 
 router.post('/product/:id/edit', receiveProductImage, saveProduct);
+
+router.post('/product/:id/delete', async (req, res, next) => {
+    try {
+        const product = await getProduct(req.params.id);
+        const deleted = product && await deleteProduct(req.params.id);
+        if (!deleted) {
+            return res.status(404).render('message', {
+                messageTitle: 'Producto no encontrado',
+                message: 'El producto que intentas borrar no existe.',
+                link: '/',
+            });
+        }
+        // Reviews are embedded in the product and are deleted with it.
+        await removeProductImage(product.image);
+        res.render('message', {
+            messageTitle: 'Producto eliminado',
+            message: 'El producto y sus reseñas se han eliminado correctamente.',
+            link: '/',
+            buttonText: 'Volver a la página principal',
+        });
+    } catch (error) {
+        next(error);
+    }
+});
 
 router.get('/product/:id', async (req, res, next) => {
     try {
