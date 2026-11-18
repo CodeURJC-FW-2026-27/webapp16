@@ -4,6 +4,16 @@ import { getProductsCollection } from './database.js';
 
 export async function loadInitialData() {
     try {
+     await fs.mkdir('./uploads', { recursive: true });
+
+const images = await fs.readdir('./data/images');
+
+for (const image of images) {
+    await fs.copyFile(
+        `./data/images/${image}`,
+        `./uploads/${image}`
+    );
+}
         const productsCollection = getProductsCollection();
         const count = await productsCollection.countDocuments();
 
