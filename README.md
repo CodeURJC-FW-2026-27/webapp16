@@ -131,26 +131,25 @@ También he adaptado views/index.html a Mustache (bucles {{#products}} y utiliza
 7. [header.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/partials/header.html)
 8. [footer.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/partials/footer.html)
 
-### Diego Fernández
-
 * **Diego:**
-* He participado en la página de detalle del producto y en la gestión completa de las reseñas. He adaptado la vista de detalle a Mustache para que muestre de forma dinámica los datos de cada producto y su lista de reseñas, usando la cabecera y el pie comunes de la aplicación. He implementado en MongoDB las operaciones para crear, editar y borrar reseñas dentro de cada producto mediante `$push`, `$set` y `$pull`, asignando a cada reseña su propio identificador, junto con sus rutas en el router. También he creado la vista de edición de reseñas y un formulario compartido para crear y editar, y he añadido las validaciones tanto en HTML como en el servidor (campos obligatorios, longitudes, puntuación entre 1 y 5 y fecha no posterior a hoy), mostrando los errores y las confirmaciones en la página común de mensajes con un enlace para volver al formulario o al producto.
+* He colaborado en la elaboración de la pagina principal, lo cual implica adición de imágenes de los productos y modificación en cada producto (información, precio, etc.). Por otro lado, he modificado la estética (colores y tamaños) del nav, header y footer. Tambien,he sustituido el contenido predeterminado por el que encaja con nuestro tema. He reestructurado el formulario y he modificado totalmente la estética para que concordase mejor con la estética general de la página.
 
-* Cinco commits más importantes
+* cinco commits 
 
-1. [Añadir funciones de reseñas en la base de datos e ids a las reseñas](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/75def29140aeb1b33fa9bc3c12351b7efcf538dd)
-2. [Añadir página de detalle de producto dinámica](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/d791e14ddd6a95e157303ca1b556759c4b27a794)
-3. [Añadir creación de reseñas con validación en servidor](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/3284fcc71910f502005cef31fecf954674b4ac96)
-4. [Añadir edición de reseñas](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/6c2032e669aa026200347e66fae52d3e9ee7b2cc)
-5. [Añadir borrado de reseñas y validaciones HTML](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/a3345d40d695ae0477515e1c92db59be6a5ff41c)
+1. [Modificación del formulario (reestructuración y estética)](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/6d6734d902f5f3af8afeee2ad10279726c742346)
+2. [Adición de imágenes](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/994a479c5cb230ca33b60bfded0f3c8a35ce7ec3)
+3. [Modificaciones del nav](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/50bdd45130184a70febdf77566d35ef880ade39b)
+4. [Modificación del footer](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/994a479c5cb230ca33b60bfded0f3c8a35ce7ec3)
+5. [Modificación header](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/857653f37204fbafca3af464298e638b96a0ca31)
+
 
 * ficheros en los que participo
 
-1. [router.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/router.js)
-2. [database.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/database.js)
-3. [detail.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/detail.html)
-4. [edit_review.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/edit_review.html)
-5. [review_form.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/partials/review_form.html)
+1. [index.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/index.html)
+2. [styles.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/styles.css)
+3. [página_detalle.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/p%C3%A1gina_detalle.html)
+4. [product-detail.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/product-detail.css)
+5. [nuevo_elemento.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/nuevo_elemento.html)
 
 
 
@@ -173,3 +172,24 @@ He implementado la creación, edición y borrado de productos, junto con la subi
 3. [src/product-validation.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/product-validation.js): validaciones de los datos de los productos en el servidor.
 4. [src/upload.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/upload.js): configuración de Multer, carpeta de destino, formatos admitidos y límite de tamaño.
 5. [views/form.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/form.html): formulario Mustache compartido para crear y editar productos.
+
+### Diego Fernández
+
+* **Diego:**
+* He participado en la página de detalle del producto y en la gestión completa de las reseñas. He adaptado la vista de detalle a Mustache para que muestre de forma dinámica los datos de cada producto y su lista de reseñas, usando la cabecera y el pie comunes de la aplicación. He implementado en MongoDB las operaciones para crear, editar y borrar reseñas dentro de cada producto mediante `$push`, `$set` y `$pull`, asignando a cada reseña su propio identificador, junto con sus rutas en el router. También he creado la vista de edición de reseñas y un formulario compartido para crear y editar, y he añadido las validaciones tanto en HTML como en el servidor (campos obligatorios, longitudes, puntuación entre 1 y 5 y fecha no posterior a hoy), mostrando los errores y las confirmaciones en la página común de mensajes con un enlace para volver al formulario o al producto.
+
+* Cinco commits más importantes
+
+1. [Añadir funciones de reseñas en la base de datos e ids a las reseñas](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/75def29140aeb1b33fa9bc3c12351b7efcf538dd)
+2. [Añadir página de detalle de producto dinámica](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/d791e14ddd6a95e157303ca1b556759c4b27a794)
+3. [Añadir creación de reseñas con validación en servidor](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/3284fcc71910f502005cef31fecf954674b4ac96)
+4. [Añadir edición de reseñas](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/6c2032e669aa026200347e66fae52d3e9ee7b2cc)
+5. [Añadir borrado de reseñas y validaciones HTML](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/a3345d40d695ae0477515e1c92db59be6a5ff41c)
+
+* ficheros en los que participo
+
+1. [router.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/router.js)
+2. [database.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/database.js)
+3. [detail.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/detail.html)
+4. [edit_review.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/edit_review.html)
+5. [review_form.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/partials/review_form.html)
