@@ -148,3 +148,27 @@ También he adaptado views/index.html a Mustache (bucles {{#products}} y utiliza
 3. [detail.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/detail.html)
 4. [edit_review.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/edit_review.html)
 5. [review_form.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/partials/review_form.html)
+
+## Práctica 2
+
+### Participación de los integrantes
+
+#### Alejandro Delgado Merino
+
+He implementado la creación, edición y borrado de productos, junto con la subida de imágenes mediante Multer a la carpeta `uploads/`. He creado las validaciones del servidor para comprobar el nombre único y su primera letra en mayúscula, los campos obligatorios, el rango y formato del precio, las categorías, las tallas y la longitud de la descripción. He preparado `views/form.html` para reutilizarlo al crear y editar, cargando los datos actuales y conservando la imagen si no se selecciona otra. También he añadido los botones de edición y borrado en la ficha, la eliminación de las imágenes sustituidas o de productos borrados y el uso de la vista común de mensajes para mostrar las confirmaciones y los errores. He comprobado estas operaciones y que las reseñas se conservan al editar y se eliminan al borrar el producto.
+
+**Cinco commits más significativos**
+
+1. [Configurar Multer para la subida de imágenes](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/99cf0c8a13df736c641e9f073ed83e29448f9419)
+2. [Añadir validaciones de productos en el servidor](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/92bd1187af6154baac2985683549487a0ce03b83)
+3. [Implementar creación de productos con imágenes y validaciones](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/ba4e3a44f9411d95b02ac8518be22093d20b4c53)
+4. [Implementar edición de productos conservando la imagen actual](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/a706d31d22aca36cea4c1370ae1ba00b91d1e4b9)
+5. [Implementar borrado de productos y sus imágenes](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/9a24e35bee0e5bbb240fb87f66493b420726359c)
+
+**Cinco archivos con mayor participación**
+
+1. [src/router.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/router.js): rutas de creación, edición y borrado de productos, procesamiento del formulario y gestión de sus imágenes.
+2. [src/database.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/database.js): operaciones de inserción, actualización y borrado de productos y consulta para comprobar nombres duplicados.
+3. [src/product-validation.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/product-validation.js): validaciones de los datos de los productos en el servidor.
+4. [src/upload.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/upload.js): configuración de Multer, carpeta de destino, formatos admitidos y límite de tamaño.
+5. [views/form.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/form.html): formulario Mustache compartido para crear y editar productos.
