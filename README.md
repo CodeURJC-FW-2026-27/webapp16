@@ -107,6 +107,81 @@
 
 ## Práctica 2
 
+### Instrucciones de ejecución
+
+#### Requisitos y versiones utilizadas
+
+La aplicación se ha probado con:
+
+- Node.js 26.13.1.
+- npm 11.20.0.
+- MongoDB Community Server 9.0.4.
+
+Estas son las versiones utilizadas durante el desarrollo. 
+
+Las dependencias del proyecto se declaran en `package.json` y sus versiones
+resueltas se registran en `package-lock.json`. Se instalan con `npm install`.
+
+MongoDB Community Server es el servidor de base de datos. El paquete
+`mongodb` de Node.js es la librería que permite conectarse a él.
+Son componentes distintos y sus números de versión no tienen que coincidir.
+
+También es necesario tener Git instalado.
+
+#### Descargar el proyecto
+
+```bash
+git clone https://github.com/CodeURJC-FW-2026-27/webapp16.git
+cd webapp16
+```
+
+#### Instalar las dependencias
+
+Desde la carpeta raíz del proyecto:
+
+```bash
+npm install
+```
+
+#### Iniciar MongoDB
+
+El servicio de MongoDB debe estar iniciado antes de ejecutar la aplicación.
+La conexión está configurada en `src/database.js` con esta dirección:
+
+```text
+mongodb://localhost:27017
+```
+
+La base de datos utilizada se llama `bull-and-pear`.
+
+#### Ejecutar la aplicación
+
+Desde la carpeta raíz del proyecto:
+
+```bash
+npm start
+```
+
+Mantener la terminal abierta y acceder desde el navegador a:
+
+```text
+http://localhost:3000/
+```
+
+Al iniciar, la aplicación copia las imágenes de ejemplo desde `data/images/`
+a `uploads/`. Si la colección de productos está vacía, carga los nueve
+productos de ejemplo y sus reseñas desde `data/products.json`.
+
+Los productos y las reseñas se guardan en MongoDB y permanecen después de
+reiniciar la aplicación. Las imágenes subidas se guardan en `uploads/`.
+
+Las carpetas `node_modules/` y `uploads/` no se incluyen en el repositorio:
+se generan durante la instalación y la ejecución de la aplicación.
+
+#### Detener la aplicación
+
+Pulsar `Ctrl + C` en la terminal donde se está ejecutando el servidor.
+
 ### Participación de los integrantes
 
 * **Sergio:**
