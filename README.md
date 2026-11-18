@@ -268,3 +268,25 @@ He implementado la creación, edición y borrado de productos, junto con la subi
 3. [detail.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/detail.html)
 4. [edit_review.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/edit_review.html)
 5. [review_form.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/partials/review_form.html)
+
+### Ismael Sakhisada
+* He de definido la estructura base del proyecto, configurar las dependencias y el control de versiones (package.json, package-lock.json y .gitignore), e implementar el servidor principal en Express con soporte para módulos ES y motor de plantillas Mustache (src/app.js). Desarrollé la conexión con la base de datos MongoDB (src/database.js) y el script de inicialización automática (src/load_data.js), encargado de insertar los productos iniciales desde data/products.json y copiar automáticamente sus imágenes desde data/images/ hacia la carpeta uploads/ cuando la colección está vacía. Asimismo, creé las plantillas parciales reutilizables (views/partials/header.html y views/partials/footer.html), la vista dinámica de mensajes de confirmación y error (views/message.html)
+
+
+* commits más importantes
+
+1. [Creacion del gitignore, los paquetes json y modulosjs](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/a5a020eca656d72c03cdc0962c59300c4b2f8da4)
+2. [Modificacion modulos app y database](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/2f683fc52e6854b79a6f0793ca33b26d6b6393ea)
+3. [Creacion productjson y load data](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/e8ea1ffb806ddeb52fd79fe5ee670a0899518d29)
+4. [Organizacion de carpetas (public, views etc...) creacion de partials y retoque en app.js](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/6d7efbf54382016cb705d49b87c05033ebfe4454)
+5. [cambio de imagenes en ppublico a data/images y modificacion de loaddata](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/97e2bb932e3152935bd9e5fefd71711111ace58c)
+
+
+
+* ficheros en los que participo
+
+1. [load_data.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/load_data.js)
+2. [app.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/app.js)
+3. [database.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/database.js)
+4. [header.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/partials/header.html)
+5. [message.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/message.html)
