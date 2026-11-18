@@ -272,6 +272,7 @@ router.get('/product/:id', async (req, res, next) => {
         }
         const review = { author: '', date: '', rating: '', comment: '' };
         res.render('detail', {
+            productDetail: true,
             product,
             today: getToday(),
             review,
@@ -297,6 +298,7 @@ router.get('/product/:id/review/:reviewId/edit', async (req, res, next) => {
             });
         }
         res.render('edit_review', {
+            productDetail: true,
             productId: req.params.id,
             review,
             today: getToday(),
@@ -427,12 +429,11 @@ router.post('/product/:id/review/new', async (req, res, next) => {
 
 router.get('/', async (req, res, next) => {
     try {
-        const requestedPage = Number.parseInt(req.query.page, 10);
-        const page = Number.isInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+        const requestedPage = Number(req.query.page);
         const search = typeof req.query.search === 'string' ? req.query.search.trim() : '';
         const category = typeof req.query.category === 'string' ? req.query.category : '';
 
-        const { products, totalPages } = await getProducts({ page, search, category });
+        const { products, totalPages, page } = await getProducts({ page: requestedPage, search, category });
         const productsView = products.map((product) => ({
             ...product,
             priceText: Number(product.price).toFixed(2),

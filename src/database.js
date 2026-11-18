@@ -148,10 +148,13 @@ export async function getProducts({ page = 1, search = '', category = '' } = {})
     }
     const collection = getProductsCollection();
     const total = await collection.countDocuments(query);
+    const totalPages = Math.ceil(total / PAGE_SIZE);
+    const requestedPage = Number.isSafeInteger(page) && page > 0 ? page : 1;
+    const currentPage = Math.min(requestedPage, totalPages || 1);
     const products = await collection
         .find(query)
-        .skip((page - 1) * PAGE_SIZE)
+        .skip((currentPage - 1) * PAGE_SIZE)
         .limit(PAGE_SIZE)
         .toArray();
-    return { products, total, totalPages: Math.ceil(total / PAGE_SIZE) };
+    return { products, total, totalPages, page: currentPage };
 }
