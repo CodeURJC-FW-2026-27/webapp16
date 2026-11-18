@@ -105,6 +105,9 @@
 4. [product-detail.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/product-detail.css)
 5. [styles.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/styles.css)
 
+## Práctica 2
+
+### Participación de los integrantes
 
 * **Sergio:**
 * He participado en la catalogación,paginación,buscador y categorias,implementando en database.js y router.js las consultas a MongoDB con paginación (skip/limit de 6 en 6), búsqueda por nombre ($regex) y filtrado por categoría (Unisex, Hombre, Mujer).
@@ -149,9 +152,7 @@ También he adaptado views/index.html a Mustache (bucles {{#products}} y utiliza
 4. [edit_review.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/edit_review.html)
 5. [review_form.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/partials/review_form.html)
 
-## Práctica 2
 
-### Participación de los integrantes
 
 #### Alejandro Delgado Merino
 
