@@ -8,7 +8,7 @@
     "sizes": ["XS", "S", "M", "L", "XL"],
     "comment": "Pantalones vaqueros de corte recto, cómodos y versátiles para el día a día. Combínalos con una camiseta básica o una sudadera para completar tu conjunto.",
     "materials": "Tejido denim de algodón, resistente y cómodo para el uso diario. Costuras reforzadas, cierre de cremallera y botón metálico.",
-    "image": "/Imagenes/pantalonvqr.jpg",
+    "image": "/uploads/pantalonvqr.jpg",
     "reviews": [
       {
         "_id": "673b1a000000000000000001",
@@ -35,7 +35,7 @@
     "sizes": ["XS", "S", "M", "L", "XL"],
     "comment": "Camiseta básica de manga corta y cuello redondo, suave al tacto y perfecta como fondo de armario.",
     "materials": "100% algodón orgánico peinado de gramaje medio con costuras dobles.",
-    "image": "/Imagenes/camiseta-blanca.jpg",
+    "image": "/uploads/camiseta-blanca.jpg",
     "reviews": []
   },
   {
@@ -47,7 +47,7 @@
     "sizes": ["S", "M", "L"],
     "comment": "Chaqueta entallada de entretiempo con cierre frontal y bolsillos laterales discretos.",
     "materials": "Poliéster reciclado resistente al viento con forro interior ligero.",
-    "image": "/Imagenes/chqt.jpg",
+    "image": "/uploads/chqt.jpg",
     "reviews": []
   },
   {
@@ -59,7 +59,7 @@
     "sizes": ["XS", "S", "M", "L"],
     "comment": "Bañador entero de secado rápido con tirantes anchos y espalda escotada cómoda.",
     "materials": "Poliamida y elastano resistentes al cloro con forro interior completo.",
-    "image": "/Imagenes/Bañador-azul.jpg",
+    "image": "/uploads/Bañador-azul.jpg",
     "reviews": []
   },
   {
@@ -71,7 +71,7 @@
     "sizes": ["S", "M", "L"],
     "comment": "Zapatos de tacón estilizado con plantilla acolchada pensados para eventos y ocasiones especiales.",
     "materials": "Exterior sintético de acabado mate con suela antideslizante.",
-    "image": "/Imagenes/tacones.jpg",
+    "image": "/uploads/tacones.jpg",
     "reviews": []
   },
   {
@@ -83,7 +83,7 @@
     "sizes": ["S", "M", "L", "XL"],
     "comment": "Sudadera clásica de corte relajado con puños y bajo elásticos de canalé.",
     "materials": "80% algodón y 20% poliéster con interior afelpado cálido.",
-    "image": "/Imagenes/sudadera-hombre.jpg",
+    "image": "/uploads/sudadera-hombre.jpg",
     "reviews": []
   },
   {
@@ -95,7 +95,7 @@
     "sizes": ["XS", "S", "M", "L", "XL"],
     "comment": "Gorro de punto suave con estampado de cuadros ideal para proteger del frío en invierno.",
     "materials": "Tejido acrílico suave de punto doble con vuelta ajustable.",
-    "image": "/Imagenes/gorro.jpg",
+    "image": "/uploads/gorro.jpg",
     "reviews": []
   },
   {
@@ -107,7 +107,7 @@
     "sizes": ["XS", "S", "M", "L", "XL"],
     "comment": "Bufanda larga con diseño de rayas y flecos en los extremos para los días fríos.",
     "materials": "Mezcla de viscosa y algodón cepillado de tacto cálido.",
-    "image": "/Imagenes/bufanda.jpg",
+    "image": "/uploads/bufanda.jpg",
     "reviews": []
   },
   {
@@ -119,7 +119,7 @@
     "sizes": ["S", "M", "L"],
     "comment": "Pack ahorro de calcetines tobilleros transpirables para uso diario y deportivo.",
     "materials": "75% algodón, 22% poliamida y 3% elastano con refuerzo en puntera y talón.",
-    "image": "/Imagenes/calcetines.jpg",
+    "image": "/uploads/calcetines.jpg",
     "reviews": []
   }
 ]
