@@ -107,24 +107,26 @@
 
 
 * **Sergio:**
-* He participado en la pagina de detalle del producto y estilos, haciendo un diseño interactivo en las reseñas en las puntuaciones y fechas, también añadiendo perfiles en las reseñas para que sean usuarios los que las cuelguen y en la página principal he hecho que todos los botones de ver detalles funcionen redirigiendonos al producto de vaquero en detalle.
-En la página de nuevo elemento he alineado las etiquetas y añadido márgenes.
+* He participado en la catalogación,paginación,buscador y categorias,implementando en database.js y router.js las consultas a MongoDB con paginación (skip/limit de 6 en 6), búsqueda por nombre ($regex) y filtrado por categoría (Unisex, Hombre, Mujer).
+También he adaptado views/index.html a Mustache (bucles {{#products}} y utilizado y adaptado con partials el index,controles de paginación, barra de búsqueda y enlaces de categorías).También cambié los checkbox de las tallas por botones.
 
 * cinco commits
-1. [Fechas en reseña realistas con un rango desde 2018-2030 en año](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/f6d4f5fe911e36f4ac6d00cdb3f05c998a95b0e3) 
-2. [rediseño de review, puntuacion interactiva y reseña con contador de caracteres](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/41d1c68f708c86f2974e52f01a4669673bb16e83)
-3. [fotos de perfil en las reseñas (pfp por defecto con iniciales)](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/ccb97bd2f43706678416aa1bb1bba5a9e50ec3d1)
-4. [correcion de la pagina de detalles de sergio y alejandro](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/e9c9c408e08ac20e28d188d90af23795431016a2)
-5. [cambio autor x usuario pagina detalle](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/156246f1dbe8d8f3b7c9047ccb8fc8b44ea01f87)
+1. [creo el router.js](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/453bfc30be5552de9948f917f4d6076a2102d8e0) 
+2. [adapto app.js a router](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/987e84761191d70b2a62e977345078cdc25f94a5)
+3. [cambio database para el catalogo](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/47e15c1785d1f0097450ad1666e805e59aff0651)
+4. [cambio los html(partials) y corrijo router,js](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/0e1c744c4f08e0adfe2c07fa17f7890743943878)
+5. [correccion buscador filtro](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/37f1864195cf66b3665bb301bce8e78a3dd7e122)
 
 * ficheros en los que participo
 
-1. [index.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/index.html)
-2. [nuevo_elemento.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/nuevo_elemento.html)
-3. [página_detalle.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/p%C3%A1gina_detalle.html)
-4. [product-detail.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/product-detail.css)
-
-
+1. [database.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/database.js)
+2. [router.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/router.js)
+3. [app.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/app.js)
+4. [product-detail.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/public/css/product-detail.css)
+5. [product-form.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/public/css/product-form.css)
+6. [index.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/index.html)
+7. [header.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/partials/header.html)
+8. [footer.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/partials/footer.html)
 
 ### Diego Fernández
 
