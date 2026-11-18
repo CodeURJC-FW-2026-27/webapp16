@@ -105,6 +105,46 @@
 4. [product-detail.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/product-detail.css)
 5. [styles.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/styles.css)
 
+
+* **Sergio:**
+* He participado en la pagina de detalle del producto y estilos, haciendo un diseño interactivo en las reseñas en las puntuaciones y fechas, también añadiendo perfiles en las reseñas para que sean usuarios los que las cuelguen y en la página principal he hecho que todos los botones de ver detalles funcionen redirigiendonos al producto de vaquero en detalle.
+En la página de nuevo elemento he alineado las etiquetas y añadido márgenes.
+
+* cinco commits
+1. [Fechas en reseña realistas con un rango desde 2018-2030 en año](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/f6d4f5fe911e36f4ac6d00cdb3f05c998a95b0e3) 
+2. [rediseño de review, puntuacion interactiva y reseña con contador de caracteres](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/41d1c68f708c86f2974e52f01a4669673bb16e83)
+3. [fotos de perfil en las reseñas (pfp por defecto con iniciales)](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/ccb97bd2f43706678416aa1bb1bba5a9e50ec3d1)
+4. [correcion de la pagina de detalles de sergio y alejandro](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/e9c9c408e08ac20e28d188d90af23795431016a2)
+5. [cambio autor x usuario pagina detalle](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/156246f1dbe8d8f3b7c9047ccb8fc8b44ea01f87)
+
+* ficheros en los que participo
+
+1. [index.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/index.html)
+2. [nuevo_elemento.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/nuevo_elemento.html)
+3. [página_detalle.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/p%C3%A1gina_detalle.html)
+4. [product-detail.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/product-detail.css)
+
+
+* **Diego:**
+* He colaborado en la elaboración de la pagina principal, lo cual implica adición de imágenes de los productos y modificación en cada producto (información, precio, etc.). Por otro lado, he modificado la estética (colores y tamaños) del nav, header y footer. Tambien,he sustituido el contenido predeterminado por el que encaja con nuestro tema. He reestructurado el formulario y he modificado totalmente la estética para que concordase mejor con la estética general de la página.
+
+* cinco commits 
+
+1. [Modificación del formulario (reestructuración y estética)](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/6d6734d902f5f3af8afeee2ad10279726c742346)
+2. [Adición de imágenes](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/994a479c5cb230ca33b60bfded0f3c8a35ce7ec3)
+3. [Modificaciones del nav](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/50bdd45130184a70febdf77566d35ef880ade39b)
+4. [Modificación del footer](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/994a479c5cb230ca33b60bfded0f3c8a35ce7ec3)
+5. [Modificación header](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/857653f37204fbafca3af464298e638b96a0ca31)
+
+
+* ficheros en los que participo
+
+1. [index.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/index.html)
+2. [styles.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/styles.css)
+3. [página_detalle.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/p%C3%A1gina_detalle.html)
+4. [product-detail.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/product-detail.css)
+5. [nuevo_elemento.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/nuevo_elemento.html)
+
 ## Práctica 2
 
 ### Instrucciones de ejecución
@@ -205,27 +245,6 @@ También he adaptado views/index.html a Mustache (bucles {{#products}} y utiliza
 6. [index.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/index.html)
 7. [header.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/partials/header.html)
 8. [footer.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/partials/footer.html)
-
-* **Diego:**
-* He colaborado en la elaboración de la pagina principal, lo cual implica adición de imágenes de los productos y modificación en cada producto (información, precio, etc.). Por otro lado, he modificado la estética (colores y tamaños) del nav, header y footer. Tambien,he sustituido el contenido predeterminado por el que encaja con nuestro tema. He reestructurado el formulario y he modificado totalmente la estética para que concordase mejor con la estética general de la página.
-
-* cinco commits 
-
-1. [Modificación del formulario (reestructuración y estética)](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/6d6734d902f5f3af8afeee2ad10279726c742346)
-2. [Adición de imágenes](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/994a479c5cb230ca33b60bfded0f3c8a35ce7ec3)
-3. [Modificaciones del nav](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/50bdd45130184a70febdf77566d35ef880ade39b)
-4. [Modificación del footer](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/994a479c5cb230ca33b60bfded0f3c8a35ce7ec3)
-5. [Modificación header](https://github.com/CodeURJC-FW-2026-27/webapp16/commit/857653f37204fbafca3af464298e638b96a0ca31)
-
-
-* ficheros en los que participo
-
-1. [index.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/index.html)
-2. [styles.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/styles.css)
-3. [página_detalle.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/p%C3%A1gina_detalle.html)
-4. [product-detail.css](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/css/product-detail.css)
-5. [nuevo_elemento.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/startbootstrap-shop-homepage-gh-pages/nuevo_elemento.html)
-
 
 
 #### Alejandro Delgado Merino
