@@ -222,6 +222,38 @@ se generan durante la instalación y la ejecución de la aplicación.
 
 Pulsar `Ctrl + C` en la terminal donde se está ejecutando el servidor.
 
+### Descripción de los archivos
+
+#### Código del servidor (`src/`)
+
+ Archivo  Función 
+
+ `src/app.js`  Configura Express, el motor de plantillas Mustache y las carpetas públicas. Conecta con MongoDB, ejecuta la carga inicial e inicia el servidor en el puerto 3000. 
+ `src/database.js`  Gestiona la conexión con MongoDB y las operaciones de productos y reseñas. Incluye las consultas de búsqueda, filtrado y paginación, y la comprobación de nombres de productos duplicados. 
+ `src/router.js`  Define las rutas de la aplicación. Recibe los formularios, llama a las operaciones de la base de datos y renderiza las vistas de catálogo, detalle, creación, edición y mensajes. También valida las reseñas y gestiona la eliminación de imágenes de productos. 
+ `src/load_data.js`  Copia las imágenes de ejemplo desde `data/images/` a `uploads/` en cada arranque. Si la colección de productos está vacía, carga los productos y sus reseñas desde `data/products.json`, convirtiendo los identificadores de las reseñas a `ObjectId`. 
+ `src/product-validation.js`  Comprueba los datos de productos en el servidor: nombre obligatorio, único y con mayúscula inicial; precio válido; género, tipo y tallas admitidos; color y materiales obligatorios; y longitud de la descripción. 
+ `src/upload.js`  Configura Multer para guardar las imágenes en `uploads/`. Crea la carpeta si no existe, comprueba el tipo de archivo declarado y limita su tamaño a 5 MB. 
+
+#### Vistas Mustache (`views/`)
+
+ Archivo  Función 
+
+ `views/index.html`  Muestra el catálogo dinámico de productos, los resultados de búsqueda y filtrado y los enlaces de paginación. 
+ `views/detail.html`  Muestra los atributos y la imagen de un producto, sus botones de edición y borrado, las reseñas asociadas y el formulario para crear una reseña. 
+ `views/form.html`  Formulario compartido para crear y editar productos. Al editar, muestra los datos actuales y permite conservar la imagen existente. 
+ `views/edit_review.html`  Página de edición de una reseña. Utiliza el formulario parcial de reseñas con los datos actuales. 
+ `views/message.html`  Vista común para mostrar las confirmaciones y los errores de las operaciones, con un enlace para continuar o volver al formulario correspondiente. 
+
+#### Plantillas parciales (`views/partials/`)
+
+ Archivo  Función 
+
+ `views/partials/header.html`  Contiene la estructura inicial del HTML, los enlaces a los estilos, la cabecera y la navegación compartidas, con buscador, categorías y acceso a la creación de productos. 
+ `views/partials/footer.html`  Contiene el pie de página común, los enlaces a los scripts y el cierre del documento HTML. 
+ `views/partials/review_form.html`  Formulario reutilizado para crear y editar reseñas. Recoge usuario, fecha, puntuación y comentario; adapta el título, la ruta de envío y los botones según la operación. 
+
+
 ### Participación de los integrantes
 
 * **Sergio:**
