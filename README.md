@@ -341,3 +341,6 @@ He implementado la creación, edición y borrado de productos, junto con la subi
 3. [database.js](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/src/database.js)
 4. [header.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/partials/header.html)
 5. [message.html](https://github.com/CodeURJC-FW-2026-27/webapp16/blob/main/views/message.html)
+
+
+#### Video:[text](https://www.youtube.com/watch?v=YmY7Lme9KLQ)
